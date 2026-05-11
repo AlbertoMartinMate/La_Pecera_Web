@@ -5,6 +5,11 @@
   grid-template-columns: 1fr 1fr;
 }
 
+.three-col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
 .col-card {
   min-height: 360px;
   padding: 56px 44px;
@@ -17,6 +22,7 @@
 
   &.c1 { background: $color-bg-2; }
   &.c2 { background: $color-bg-3; }
+  &.c3 { background: #0a1000; }
 }
 
 .col-num {
@@ -60,7 +66,8 @@
 }
 
 @media (max-width: #{$bp-md}) {
-  .two-col {
+  .two-col,
+  .three-col {
     grid-template-columns: 1fr;
   }
 
