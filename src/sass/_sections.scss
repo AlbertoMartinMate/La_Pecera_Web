@@ -58,3 +58,21 @@
   align-self: flex-start;
   margin-top: 8px;
 }
+
+@media (max-width: #{$bp-md}) {
+  .two-col {
+    grid-template-columns: 1fr;
+  }
+
+  .col-card {
+    padding: 44px 24px;
+  }
+
+  .col-card h2 {
+    font-size: 40px;
+  }
+
+  .col-num {
+    font-size: 90px;
+  }
+}

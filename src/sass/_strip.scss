@@ -32,3 +32,18 @@
   line-height: 1;
   user-select: none;
 }
+
+@media (max-width: #{$bp-md}) {
+  .strip {
+    padding: 13px 20px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+
+    &::-webkit-scrollbar { display: none; }
+  }
+
+  .strip__list {
+    flex-wrap: nowrap;
+    gap: 20px;
+  }
+}
