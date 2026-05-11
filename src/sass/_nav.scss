@@ -25,8 +25,11 @@
 
     img {
       height: 40px;
-      width: auto;
+      width: 40px;
+      border-radius: 50%;
+      object-fit: cover;
       display: block;
+      flex-shrink: 0;
     }
 
     span { color: $color-accent; }
