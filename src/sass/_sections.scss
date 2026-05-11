@@ -1,2 +1,60 @@
+@use 'variables' as *;
+
 .two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.col-card {
+  min-height: 360px;
+  padding: 56px 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+  overflow: hidden;
+  gap: 14px;
+
+  &.c1 { background: $color-bg-2; }
+  &.c2 { background: $color-bg-3; }
+}
+
+.col-num {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  font-family: $font-display;
+  font-size: 130px;
+  line-height: 1;
+  color: $color-text;
+  opacity: 0.04;
+  pointer-events: none;
+  user-select: none;
+}
+
+.col-tag {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: $color-accent;
+}
+
+.col-card h2 {
+  font-family: $font-display;
+  font-size: 50px;
+  text-transform: uppercase;
+  line-height: 0.9;
+  color: $color-text;
+}
+
+.col-card p {
+  font-size: 14px;
+  color: $color-text-muted;
+  max-width: 380px;
+  line-height: 1.65;
+}
+
+.col-card .btn-primary {
+  align-self: flex-start;
+  margin-top: 8px;
 }

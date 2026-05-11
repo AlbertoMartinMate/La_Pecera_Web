@@ -1,2 +1,130 @@
+@use 'variables' as *;
+
 .hero {
+  height: 560px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.4s ease;
+
+  &:nth-child(1) { background-color: #0d1a00; }
+  &:nth-child(2) { background-color: #0a1000; }
+  &:nth-child(3) { background-color: #111800; }
+
+  &.active { opacity: 1; }
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(12, 12, 12, 0.88) 0%, transparent 70%);
+  z-index: 2;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  padding: 0 36px;
+  max-width: 680px;
+}
+
+.hero-badge {
+  display: inline-block;
+  border: 1px solid rgba(198, 255, 0, 0.5);
+  color: $color-accent;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 50px;
+  margin-bottom: 24px;
+}
+
+.hero-content h1 {
+  font-family: $font-display;
+  font-size: 90px;
+  line-height: 0.88;
+  text-transform: uppercase;
+  color: $color-text;
+  margin-bottom: 24px;
+
+  em {
+    font-style: normal;
+    color: $color-accent;
+  }
+}
+
+.hero-desc {
+  font-size: 15px;
+  color: $color-text-muted;
+  max-width: 460px;
+  margin-bottom: 36px;
+  line-height: 1.6;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  display: inline-block;
+  background: $color-accent;
+  color: $color-bg;
+  font-weight: 700;
+  padding: 12px 28px;
+  border-radius: 2px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: opacity 0.2s;
+
+  &:hover { opacity: 0.85; }
+}
+
+.btn-ghost {
+  display: inline-block;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: $color-text;
+  padding: 12px 28px;
+  border-radius: 2px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: border-color 0.2s, color 0.2s;
+
+  &:hover {
+    border-color: $color-accent;
+    color: $color-accent;
+  }
+}
+
+.hero-dots {
+  position: absolute;
+  bottom: 24px;
+  right: 36px;
+  z-index: 3;
+  display: flex;
+  gap: 8px;
+}
+
+.hero-dot {
+  width: 28px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
+  padding: 0;
+  transition: background 0.3s;
+
+  &.active { background: $color-accent; }
 }

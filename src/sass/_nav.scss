@@ -1,2 +1,55 @@
+@use 'variables' as *;
+
 .nav {
+  background: $color-bg;
+  position: relative;
+  z-index: 10;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 36px;
+    height: 64px;
+  }
+
+  &__logo {
+    font-family: $font-display;
+    font-size: 22px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $color-text;
+
+    span { color: $color-accent; }
+  }
+
+  &__links {
+    display: flex;
+    gap: 32px;
+
+    a {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: rgba(255, 255, 255, 0.6);
+      transition: color 0.2s;
+
+      &:hover { color: $color-accent; }
+    }
+  }
+
+  &__cta {
+    display: inline-block;
+    background: $color-accent;
+    color: $color-bg;
+    font-weight: 700;
+    padding: 9px 22px;
+    border-radius: 2px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: opacity 0.2s;
+
+    &:hover { opacity: 0.85; }
+  }
 }
