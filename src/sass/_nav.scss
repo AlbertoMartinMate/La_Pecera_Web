@@ -14,11 +14,23 @@
   }
 
   &__logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     font-family: $font-display;
     font-size: 22px;
     letter-spacing: 3px;
     text-transform: uppercase;
     color: $color-text;
+
+    img {
+      height: 40px;
+      width: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      flex-shrink: 0;
+    }
 
     span { color: $color-accent; }
   }
