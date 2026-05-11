@@ -14,13 +14,11 @@
   }
 
   &__logo {
-    font-family: $font-display;
-    font-size: 22px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: $color-text;
-
-    span { color: $color-accent; }
+    img {
+      height: 40px;
+      width: auto;
+      display: block;
+    }
   }
 
   &__links {
