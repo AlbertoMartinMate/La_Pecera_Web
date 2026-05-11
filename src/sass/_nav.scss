@@ -14,11 +14,22 @@
   }
 
   &__logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: $font-display;
+    font-size: 22px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $color-text;
+
     img {
       height: 40px;
       width: auto;
       display: block;
     }
+
+    span { color: $color-accent; }
   }
 
   &__links {
