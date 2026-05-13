@@ -144,6 +144,13 @@
     padding: 0 20px;
   }
 
+  .hero-video iframe {
+    width: 100vw;
+    height: 177.78vw;
+    min-width: 100vw;
+    min-height: 100%;
+  }
+
   .hero-content h1 {
     font-size: 54px;
     margin-bottom: 16px;
