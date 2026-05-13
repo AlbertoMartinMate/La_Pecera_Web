@@ -58,19 +58,46 @@
   min-height: 320px;
 }
 
-.club-media__slide {
+.carousel__track {
+  display: flex;
+  height: 100%;
+  min-height: 320px;
+  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+
+  img {
+    min-width: 100%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    flex-shrink: 0;
+    display: block;
+  }
+}
+
+.carousel__dots {
   position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  opacity: 0;
-  transition: opacity 1.6s ease;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 7px;
+  z-index: 2;
 
-  &:nth-child(1) { background-color: #0d1a00; }
-  &:nth-child(2) { background-color: #0a1200; }
-  &:nth-child(3) { background-color: #111800; }
+  button {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.35);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.3s, transform 0.3s;
 
-  &.active { opacity: 1; }
+    &.active {
+      background: $color-accent;
+      transform: scale(1.3);
+    }
+  }
 }
 
 @media (max-width: #{$bp-nav}) {
@@ -80,14 +107,28 @@
 
   .club-split__info {
     padding: 36px 24px;
-    gap: 20px;
+    gap: 16px;
   }
 
   .club-split__title {
     font-size: 38px;
   }
 
+  .club-split__list li {
+    font-size: 11px;
+    gap: 10px;
+  }
+
+  .club-split__list svg {
+    width: 15px;
+    height: 15px;
+  }
+
   .club-split__media {
-    min-height: 160px;
+    min-height: 260px;
+  }
+
+  .carousel__track {
+    min-height: 260px;
   }
 }
