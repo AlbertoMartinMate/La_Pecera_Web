@@ -68,9 +68,13 @@
 
 @media (max-width: #{$bp-md}) {
   .footer__inner {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     padding: 40px 20px 24px;
     gap: 32px;
+  }
+
+  .footer__col--brand {
+    grid-column: 1 / -1;
   }
 
   .footer__bottom {
