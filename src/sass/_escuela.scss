@@ -1,0 +1,372 @@
+@use 'variables' as *;
+
+// ── Hero estático ──────────────────────────────────────────────────────────────
+
+.escuela-hero {
+  height: 500px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-bottom: 60px;
+
+  &__bg {
+    position: absolute;
+    inset: 0;
+    background: url('/src/assets/images/escuela/hero-escuela.jpeg') center / cover no-repeat;
+    background-color: $color-bg-3;
+    z-index: 0;
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(12, 12, 12, 0.92) 0%, rgba(12, 12, 12, 0.45) 100%);
+    z-index: 1;
+  }
+
+  .hero-content {
+    z-index: 2;
+  }
+}
+
+// ── Nav: enlace activo en esta página ─────────────────────────────────────────
+
+.nav__links a[aria-current="page"] {
+  color: $color-accent;
+}
+
+// ── Intro + WhatsApp ──────────────────────────────────────────────────────────
+
+.escuela-intro {
+  background: $color-bg-2;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+
+  &__inner {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 72px 36px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    text-align: center;
+  }
+
+  &__text {
+    font-size: 18px;
+    color: $color-text-muted;
+    line-height: 1.75;
+
+    em {
+      font-style: normal;
+      color: $color-text;
+      font-weight: 600;
+    }
+  }
+}
+
+.escuela-intro__actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.escuela-intro__tarifas-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 11px;
+  padding: 13px 30px;
+
+  svg {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+  }
+}
+
+.btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #25d366;
+  color: #fff;
+  font-weight: 700;
+  padding: 13px 30px;
+  border-radius: 2px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: opacity 0.2s;
+
+  svg {
+    width: 18px;
+    height: 18px;
+    fill: #fff;
+    flex-shrink: 0;
+  }
+
+  &:hover {
+    opacity: 0.85;
+  }
+}
+
+// ── Profesores ────────────────────────────────────────────────────────────────
+
+.escuela-teachers {
+  background: $color-bg;
+  padding: 80px 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 52px;
+
+  &__label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: $color-accent;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+    max-width: 840px;
+    width: 100%;
+  }
+}
+
+.teacher-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+
+  &__photo {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid rgba(198, 255, 0, 0.2);
+    background: $color-bg-2;
+    flex-shrink: 0;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    &--placeholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      svg {
+        width: 72px;
+        height: 72px;
+        color: rgba(255, 255, 255, 0.12);
+      }
+    }
+  }
+
+  &__name {
+    font-family: $font-display;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: $color-text;
+    line-height: 1;
+  }
+
+  &__role {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: $color-accent;
+  }
+}
+
+// ── Normativa / Calendario ────────────────────────────────────────────────────
+
+.escuela-docs {
+  background: $color-bg-2;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 64px 36px;
+  display: flex;
+  justify-content: center;
+
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    padding: 14px 32px;
+
+    svg {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+  }
+}
+
+// ── Modal ─────────────────────────────────────────────────────────────────────
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s;
+
+  &.is-open {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  &__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.88);
+    cursor: pointer;
+  }
+
+  &__box {
+    position: relative;
+    z-index: 1;
+    background: $color-bg-2;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 3px;
+    padding: 44px 40px 40px;
+    max-width: 920px;
+    width: 92vw;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  &__close {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    background: none;
+    border: none;
+    color: $color-text-muted;
+    font-size: 30px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 4px 8px;
+    transition: color 0.2s;
+
+    &:hover {
+      color: $color-accent;
+    }
+  }
+
+  &__title {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: $color-accent;
+    margin-bottom: 24px;
+  }
+
+  &__images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+
+    figure {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 2px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    figcaption {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: $color-text-muted;
+      text-align: center;
+    }
+  }
+
+  &__images--single {
+    grid-template-columns: 1fr;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+}
+
+// ── Responsive ────────────────────────────────────────────────────────────────
+
+@media (max-width: #{$bp-md}) {
+  .escuela-hero {
+    height: 420px;
+    align-items: flex-start;
+    padding-top: 60px;
+    padding-bottom: 0;
+
+    .hero-content {
+      padding: 0 20px;
+    }
+  }
+
+  .escuela-intro__inner {
+    padding: 52px 20px;
+
+    .escuela-intro__text {
+      font-size: 15px;
+    }
+  }
+
+  .escuela-teachers {
+    padding: 56px 20px;
+    gap: 40px;
+
+    &__grid {
+      grid-template-columns: 1fr;
+      max-width: 280px;
+    }
+  }
+
+  .escuela-docs {
+    padding: 44px 20px;
+  }
+
+  .modal__box {
+    padding: 36px 20px 28px;
+  }
+
+  .modal__images {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: #{$bp-sm}) {
+  .escuela-hero {
+    height: 380px;
+
+    .hero-content h1 {
+      font-size: 48px;
+    }
+  }
+}
