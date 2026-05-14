@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/La_Pecera_Web/favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="/La_Pecera_Web/apple-touch-icon.png" />
+    <link rel="manifest" href="/La_Pecera_Web/manifest.json" />
+    <meta name="theme-color" content="#0c0c0c" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Escuela de Pádel · La Pecera Pádel Club</title>
+    <script type="module" crossorigin src="/La_Pecera_Web/assets/escuela-E7gZgFRg.js"></script>
+    <link rel="modulepreload" crossorigin href="/La_Pecera_Web/assets/main-DGDGzGE9.js">
+    <link rel="stylesheet" crossorigin href="/La_Pecera_Web/assets/main-DGt1OxO5.css">
+  </head>
+  <body>
+
+    <nav class="nav">
+      <div class="nav__inner">
+        <a class="nav__logo" href="index.html">
+          <img src="/La_Pecera_Web/assets/logo_nav-BnACwTMG.png" alt="" />
+          La <span>Pecera</span> Pádel
+        </a>
+        <ul class="nav__links">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="index.html">Instalaciones</a></li>
+          <li><a href="index.html">Tarifas</a></li>
+          <li><a href="escuela.html" aria-current="page">Escuela</a></li>
+          <li><a href="index.html#actividades">Actividades</a></li>
+          <li><a href="index.html">Contacto</a></li>
+        </ul>
+        <a class="nav__cta" href="#">Reservar pista</a>
+        <button class="nav__burger" aria-label="Abrir menú" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Hero con foto -->
+    <section class="escuela-hero">
+      <div class="escuela-hero__bg"></div>
+      <div class="escuela-hero__overlay"></div>
+      <div class="hero-content">
+        <span class="hero-badge">Escuela Federada · Desde 2014</span>
+        <h1>Escuela de <em>Pádel</em></h1>
+      </div>
+    </section>
+
+    <!-- Descripción + WhatsApp -->
+    <section class="escuela-intro">
+      <div class="escuela-intro__inner">
+        <p class="escuela-intro__text">
+          Escuela propia desde 2014 formada con técnicos federados y más de
+          <em>200 alumnos</em> de todos los niveles, en todas las franjas horarias
+          y con diferentes modalidades de clase.
+        </p>
+        <div class="escuela-intro__actions">
+          <a class="btn-whatsapp" href="https://wa.me/34618613690" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Contactar por WhatsApp
+          </a>
+          <button class="btn-primary escuela-intro__tarifas-btn" id="btn-tarifas">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
+            </svg>
+            Tarifas
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal Tarifas -->
+    <div class="modal" id="modal-tarifas" role="dialog" aria-modal="true" aria-label="Tarifas de Escuela">
+      <div class="modal__backdrop"></div>
+      <div class="modal__box">
+        <button class="modal__close" aria-label="Cerrar">&times;</button>
+        <p class="modal__title">Tarifas de Escuela</p>
+        <div class="modal__images modal__images--single">
+          <figure>
+            <img src="/La_Pecera_Web/assets/tarifas-CSXTUYwy.jpeg" alt="Tarifas de Escuela" />
+          </figure>
+        </div>
+      </div>
+    </div>
+
+    <!-- Profesores -->
+    <section class="escuela-teachers">
+      <span class="escuela-teachers__label">Nuestros Profesores</span>
+      <div class="escuela-teachers__grid">
+
+        <div class="teacher-card">
+          <div class="teacher-card__photo">
+            <img src="/La_Pecera_Web/assets/carlos-vazquez-D2RVl_aF.jpeg" alt="Carlos Vázquez" />
+          </div>
+          <h3 class="teacher-card__name">Carlos Vázquez</h3>
+          <span class="teacher-card__role">Técnico Federado</span>
+        </div>
+
+        <div class="teacher-card">
+          <div class="teacher-card__photo">
+            <img src="/La_Pecera_Web/assets/nacho-quesada-CTIidvZ4.jpeg" alt="Nacho Quesada" />
+          </div>
+          <h3 class="teacher-card__name">Nacho Quesada</h3>
+          <span class="teacher-card__role">Técnico Federado</span>
+        </div>
+
+        <div class="teacher-card">
+          <div class="teacher-card__photo teacher-card__photo--placeholder" aria-label="Foto próximamente">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="32" cy="24" r="12" stroke="currentColor" stroke-width="2"/>
+              <path d="M8 56c0-13.255 10.745-24 24-24s24 10.745 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="teacher-card__name">Sergio Millie</h3>
+          <span class="teacher-card__role">Técnico Federado</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Normativa y Calendario -->
+    <div class="escuela-docs">
+      <button class="btn-ghost escuela-docs__btn" id="btn-docs">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
+        </svg>
+        Normativa &amp; Calendario de Escuela
+      </button>
+    </div>
+
+    <!-- Modal Normativa / Calendario -->
+    <div class="modal" id="modal-docs" role="dialog" aria-modal="true" aria-label="Normativa y Calendario de Escuela">
+      <div class="modal__backdrop"></div>
+      <div class="modal__box">
+        <button class="modal__close" aria-label="Cerrar">&times;</button>
+        <p class="modal__title">Normativa &amp; Calendario</p>
+        <div class="modal__images">
+          <figure>
+            <img src="/La_Pecera_Web/assets/normativa-BMwX2usm.jpeg" alt="Normativa de Escuela" />
+            <figcaption>Normativa</figcaption>
+          </figure>
+          <figure>
+            <img src="/La_Pecera_Web/assets/calendario-L3gSDW2R.jpeg" alt="Calendario de Escuela" />
+            <figcaption>Calendario</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="footer__inner">
+        <div class="footer__col footer__col--brand">
+          <span class="footer__brand">La <span>Pecera</span> Pádel</span>
+          <p>Club de pádel en Humanes de Madrid. Instalaciones de primer nivel para todos los niveles.</p>
+        </div>
+        <div class="footer__col">
+          <h4>Club</h4>
+          <nav>
+            <a href="index.html">Inicio</a>
+            <a href="index.html">Instalaciones</a>
+            <a href="index.html">Tarifas</a>
+            <a href="escuela.html">Escuela</a>
+            <a href="index.html#actividades">Actividades</a>
+            <a href="index.html">Contacto</a>
+          </nav>
+        </div>
+        <div class="footer__col">
+          <h4>Legal</h4>
+          <nav>
+            <a href="#">Aviso legal</a>
+            <a href="#">Política de privacidad</a>
+            <a href="#">Cookies</a>
+          </nav>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>© 2025 La Pecera Pádel Club. Todos los derechos reservados.</p>
+        <p>Humanes de Madrid</p>
+      </div>
+    </footer>
+
+  </body>
+</html>
