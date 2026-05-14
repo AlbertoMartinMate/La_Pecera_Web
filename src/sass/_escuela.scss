@@ -87,6 +87,20 @@
   }
 }
 
+.escuela-intro__email-btn {
+  display: none;
+  align-items: center;
+  gap: 9px;
+  font-size: 11px;
+  padding: 13px 30px;
+
+  svg {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+  }
+}
+
 .btn-whatsapp {
   display: inline-flex;
   align-items: center;
@@ -319,6 +333,10 @@
 // ── Responsive ────────────────────────────────────────────────────────────────
 
 @media (max-width: #{$bp-md}) {
+  .escuela-intro__email-btn {
+    display: inline-flex;
+  }
+
   .escuela-hero {
     height: 420px;
     align-items: flex-start;
