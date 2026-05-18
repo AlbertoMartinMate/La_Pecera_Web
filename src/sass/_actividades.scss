@@ -1,0 +1,188 @@
+@use 'variables' as *;
+
+// ── Hero ──────────────────────────────────────────────────────────────────────
+
+.acti-hero {
+  height: 500px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-bottom: 60px;
+
+  &__bg {
+    position: absolute;
+    inset: 0;
+    background: url('/src/assets/images/actividades/actividades-hero.jpeg') center / cover no-repeat;
+    background-color: $color-bg-3;
+    z-index: 0;
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(12, 12, 12, 0.92) 0%, rgba(12, 12, 12, 0.45) 100%);
+    z-index: 1;
+  }
+
+  .hero-content {
+    z-index: 2;
+  }
+}
+
+// ── Nav: enlace activo en esta página ─────────────────────────────────────────
+
+.nav__links a[aria-current="page"] {
+  color: $color-accent;
+}
+
+// ── Intro ─────────────────────────────────────────────────────────────────────
+
+.acti-intro {
+  background: $color-bg-2;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+
+  &__inner {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 72px 36px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    text-align: center;
+  }
+
+  &__text {
+    font-size: 18px;
+    color: $color-text-muted;
+    line-height: 1.75;
+
+    em {
+      font-style: normal;
+      color: $color-text;
+      font-weight: 600;
+    }
+
+    strong {
+      color: $color-accent;
+      font-weight: 700;
+    }
+  }
+}
+
+// ── Galería / imagen ampliable ────────────────────────────────────────────────
+
+.acti-gallery {
+  background: $color-bg;
+  padding: 72px 36px;
+  display: flex;
+  justify-content: center;
+
+  &__trigger {
+    position: relative;
+    display: block;
+    max-width: 900px;
+    width: 100%;
+    border: none;
+    padding: 0;
+    background: none;
+    cursor: zoom-in;
+    border-radius: 3px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 3px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      transition: transform 0.4s ease, opacity 0.4s ease;
+    }
+
+    &:hover img {
+      transform: scale(1.02);
+      opacity: 0.9;
+    }
+
+    &:hover .acti-gallery__hint {
+      opacity: 1;
+    }
+  }
+
+  &__hint {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(12, 12, 12, 0.75);
+    color: $color-text;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 10px 20px;
+    border-radius: 2px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+    white-space: nowrap;
+
+    svg {
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+    }
+  }
+}
+
+// ── Modal imagen grande ───────────────────────────────────────────────────────
+
+.modal__box--image {
+  max-width: 1100px;
+  background: $color-bg;
+  padding: 52px 32px 32px;
+
+  .modal__images--single {
+    max-width: 100%;
+  }
+}
+
+// ── Responsive ────────────────────────────────────────────────────────────────
+
+@media (max-width: #{$bp-md}) {
+  .acti-hero {
+    height: 420px;
+    align-items: flex-start;
+    padding-top: 60px;
+    padding-bottom: 0;
+
+    .hero-content {
+      padding: 0 20px;
+    }
+  }
+
+  .acti-intro__inner {
+    padding: 52px 20px;
+
+    .acti-intro__text {
+      font-size: 15px;
+    }
+  }
+
+  .acti-gallery {
+    padding: 48px 20px;
+  }
+}
+
+@media (max-width: #{$bp-sm}) {
+  .acti-hero {
+    height: 380px;
+
+    .hero-content h1 {
+      font-size: 48px;
+    }
+  }
+}
