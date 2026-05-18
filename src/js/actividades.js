@@ -1,14 +1,14 @@
 import galeriaData from '../data/galeria.json';
 
-// Rellena el grid del hero con las 6 últimas fotos
-const heroPhotos = document.getElementById('acti-hero-photos');
-if (heroPhotos) {
+// Rellena la tira de stories con las últimas fotos
+const storiesContainer = document.getElementById('acti-hero-stories');
+if (storiesContainer) {
   const allFotos = galeriaData.meses.flatMap(m => m.fotos);
-  allFotos.slice(-5).forEach(url => {
-    const cell = document.createElement('div');
-    cell.className = 'acti-hero__photo';
-    cell.innerHTML = `<img src="${url}" alt="" loading="lazy" />`;
-    heroPhotos.appendChild(cell);
+  allFotos.slice(-6).forEach(url => {
+    const avatar = document.createElement('div');
+    avatar.className = 'acti-hero__story';
+    avatar.innerHTML = `<img src="${url}" alt="" loading="lazy" />`;
+    storiesContainer.appendChild(avatar);
   });
 }
 
