@@ -186,14 +186,17 @@ export function initGaleria() {
 
   modalEl.querySelector('.ganadores__modal-backdrop').addEventListener('click', closeGallery);
   modalEl.querySelector('.ganadores__modal-close').addEventListener('click', closeGallery);
-  modalEl.querySelector('.ganadores__viewer-close').addEventListener('click', closeViewer);
+  modalEl.querySelector('.ganadores__viewer-close').addEventListener('click', () => {
+    closeViewer();
+    closeGallery();
+  });
   modalEl.querySelector('.ganadores__viewer-prev').addEventListener('click', () => navigate(-1));
   modalEl.querySelector('.ganadores__viewer-next').addEventListener('click', () => navigate(1));
 
   document.addEventListener('keydown', e => {
     if (!modalEl.classList.contains('is-open')) return;
     const viewerOpen = !modalEl.querySelector('.ganadores__viewer').hidden;
-    if (e.key === 'Escape') { viewerOpen ? closeViewer() : closeGallery(); }
+    if (e.key === 'Escape') { closeViewer(); closeGallery(); }
     if (viewerOpen && e.key === 'ArrowLeft')  navigate(-1);
     if (viewerOpen && e.key === 'ArrowRight') navigate(1);
   });
