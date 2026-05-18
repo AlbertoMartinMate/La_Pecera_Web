@@ -41,22 +41,22 @@
     flex-shrink: 0;
   }
 
-  // Grid 4×2 de fotos recientes — celdas portrait para fotos de móvil
+  // Fila de stories 9:16 — como Instagram
   &__photos {
-    display: grid;
-    grid-template-columns: repeat(4, 76px);
-    grid-template-rows: repeat(2, 114px);
-    gap: 3px;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
     flex-shrink: 0;
-    border-radius: 6px;
-    overflow: hidden;
-    opacity: 0.88;
+    align-items: center;
 
     .acti-hero__photo {
-      width: 76px;
-      height: 114px;
+      width: 72px;
+      height: 128px; // ratio 9:16
+      flex-shrink: 0;
+      border-radius: 8px;
       overflow: hidden;
       background: $color-bg-2;
+      border: 1px solid rgba(255,255,255,0.08);
 
       img {
         width: 100%;
