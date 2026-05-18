@@ -41,10 +41,7 @@
     line-height: 1;
     margin: 0;
 
-    em {
-      font-style: normal;
-      color: $color-accent;
-    }
+    em { font-style: normal; color: $color-accent; }
   }
 
   &__subtitle {
@@ -76,7 +73,6 @@
     transform: translateY(-4px);
     box-shadow: 0 20px 48px rgba(0, 0, 0, 0.5);
 
-    .ganadores__collage img { transform: scale(1.06); }
     .ganadores__month-overlay { background: rgba(12, 12, 12, 0.65); }
     .ganadores__month-cta { opacity: 1; transform: translateY(0); }
   }
@@ -87,7 +83,7 @@
   }
 }
 
-// Collage — fix: rows explícitos para evitar corte en aspect-ratio containers
+// Collage — contain para no cortar las fotos
 .ganadores__collage {
   position: absolute;
   inset: 0;
@@ -100,10 +96,10 @@
   img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;   // ← sin recorte
+    background: $color-bg; // fondo oscuro en el hueco
     display: block;
-    transition: transform 0.5s ease;
-    filter: brightness(0.8);
+    filter: brightness(0.85);
   }
 
   img:first-child:last-child {
@@ -177,7 +173,7 @@
   justify-content: center;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.25s ease;
+  transition: opacity 0.22s ease;
 
   &.is-open {
     opacity: 1;
@@ -190,45 +186,48 @@
 .ganadores__modal-backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.92);
+  background: rgba(0, 0, 0, 0.95);
 }
 
+// La caja ocupa casi toda la pantalla siempre
 .ganadores__modal-box {
   position: relative;
   z-index: 1;
-  width: min(94vw, 1080px);
-  max-height: 90vh;
+  width: 96vw;
+  height: 92vh;
   display: flex;
   flex-direction: column;
   background: $color-bg;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 6px;
   overflow: hidden;
-  transform: scale(0.96);
-  transition: transform 0.25s ease;
+  transform: scale(0.97);
+  transition: transform 0.22s ease;
 }
 
-// Topbar
+// ── Topbar ─────────────────────────────────────────────────────────────────────
+
 .ganadores__modal-topbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  padding: 14px 18px;
+  padding: 12px 16px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   flex-shrink: 0;
+  background: $color-bg;
 }
 
 .ganadores__modal-left,
 .ganadores__modal-right {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
 .ganadores__modal-title {
   font-family: $font-display;
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 900;
   text-transform: uppercase;
   color: $color-text;
@@ -260,8 +259,8 @@
   padding: 7px 14px;
   border-radius: 3px;
   cursor: pointer;
-  transition: color 0.2s, border-color 0.2s;
   white-space: nowrap;
+  transition: color 0.2s, border-color 0.2s;
 
   svg { width: 14px; height: 14px; flex-shrink: 0; }
   &:hover { color: $color-text; border-color: rgba(255,255,255,0.4); }
@@ -279,10 +278,10 @@
   text-decoration: none;
   color: $color-bg;
   background: $color-accent;
-  padding: 8px 16px;
+  padding: 7px 15px;
   border-radius: 3px;
-  transition: opacity 0.2s;
   white-space: nowrap;
+  transition: opacity 0.2s;
 
   svg { width: 13px; height: 13px; flex-shrink: 0; }
   &:hover { opacity: 0.85; }
@@ -307,25 +306,25 @@
   &:hover { color: $color-text; border-color: rgba(255,255,255,0.35); }
 }
 
-// ── Vista cuadrícula de miniaturas ─────────────────────────────────────────────
+// ── Vista cuadrícula ───────────────────────────────────────────────────────────
 
 .ganadores__thumb-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   gap: 6px;
-  padding: 16px;
+  padding: 14px;
   overflow-y: auto;
   flex: 1;
   min-height: 0;
+  background: $color-bg;
 }
 
 .ganadores__thumb {
-  position: relative;
   aspect-ratio: 1 / 1;
   overflow: hidden;
   border-radius: 4px;
   border: 2px solid transparent;
-  background: $color-bg;
+  background: $color-bg-2;
   padding: 0;
   cursor: pointer;
   transition: border-color 0.2s, transform 0.2s;
@@ -333,44 +332,41 @@
   img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;   // ← sin recorte
     display: block;
-    transition: transform 0.35s ease, brightness 0.2s;
+    transition: transform 0.3s ease;
   }
 
   &:hover {
     border-color: $color-accent;
-    transform: scale(1.03);
-
-    img { filter: brightness(1.1); }
+    transform: scale(1.04);
   }
 }
 
-// ── Vista carrusel ─────────────────────────────────────────────────────────────
+// ── Vista carrusel — pantalla completa ─────────────────────────────────────────
 
 .ganadores__carousel {
-  position: relative;
   flex: 1;
   min-height: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   background: #000;
+  position: relative;
 }
 
 .ganadores__carousel-track {
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 12px 60px;
-  box-sizing: border-box;
+  padding: 16px 72px; // hueco para las flechas
 }
 
 .ganadores__carousel-img {
   max-width: 100%;
-  max-height: 72vh;
+  max-height: 100%;
   width: auto;
   height: auto;
   object-fit: contain;
@@ -386,25 +382,25 @@
   top: 50%;
   transform: translateY(-50%);
   z-index: 2;
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(12, 12, 12, 0.75);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(20, 20, 20, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 50%;
   color: $color-text;
   cursor: pointer;
   transition: background 0.2s, opacity 0.2s;
 
-  svg { width: 20px; height: 20px; }
-  &:hover { background: rgba(198, 255, 0, 0.15); }
+  svg { width: 22px; height: 22px; }
+  &:hover { background: rgba(198, 255, 0, 0.2); border-color: $color-accent; }
   &:disabled { opacity: 0.2; pointer-events: none; }
 }
 
-.ganadores__carousel-prev { left: 12px; }
-.ganadores__carousel-next { right: 12px; }
+.ganadores__carousel-prev { left: 14px; }
+.ganadores__carousel-next { right: 14px; }
 
 // ── Responsive ─────────────────────────────────────────────────────────────────
 
@@ -415,13 +411,13 @@
     &__months { grid-template-columns: 1fr 1fr; gap: 10px; }
   }
 
-  .ganadores__modal-box { max-height: 95vh; }
-
   .ganadores__thumb-grid {
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
     gap: 5px;
-    padding: 12px;
+    padding: 10px;
   }
+
+  .ganadores__carousel-track { padding: 12px 56px; }
 }
 
 @media (max-width: #{$bp-sm}) {
@@ -431,14 +427,15 @@
     &__months { grid-template-columns: 1fr; }
   }
 
-  .ganadores__modal-topbar { padding: 10px 12px; gap: 8px; }
-  .ganadores__back-btn span { display: none; }
+  .ganadores__modal-box { width: 100vw; height: 100dvh; border-radius: 0; }
 
   .ganadores__thumb-grid {
     grid-template-columns: repeat(3, 1fr);
     gap: 4px;
-    padding: 10px;
+    padding: 8px;
   }
 
-  .ganadores__modal-download svg + * { display: none; }
+  .ganadores__carousel-prev { left: 6px; }
+  .ganadores__carousel-next { right: 6px; }
+  .ganadores__carousel-track { padding: 8px 52px; }
 }
