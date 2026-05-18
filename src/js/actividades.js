@@ -1,3 +1,17 @@
+import galeriaData from '../data/galeria.json';
+
+// Rellena el grid del hero con las 6 últimas fotos
+const heroPhotos = document.getElementById('acti-hero-photos');
+if (heroPhotos) {
+  const allFotos = galeriaData.meses.flatMap(m => m.fotos);
+  allFotos.slice(-6).forEach(url => {
+    const cell = document.createElement('div');
+    cell.className = 'acti-hero__photo';
+    cell.innerHTML = `<img src="${url}" alt="" loading="lazy" />`;
+    heroPhotos.appendChild(cell);
+  });
+}
+
 const btn = document.getElementById('btn-zoom');
 const modal = document.getElementById('modal-zoom');
 if (btn && modal) {
