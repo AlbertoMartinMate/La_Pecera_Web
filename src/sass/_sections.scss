@@ -133,6 +133,15 @@
   }
 }
 
+.card-stories__avatar--placeholder {
+  background: rgba(255,255,255,0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg { width: 22px; height: 22px; }
+}
+
 .card-stories__label {
   font-size: 11px;
   font-weight: 700;
