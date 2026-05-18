@@ -12,6 +12,7 @@ export default defineConfig({
         main: resolve(__dirname, 'index.html'),
         escuela: resolve(__dirname, 'escuela.html'),
         actividades: resolve(__dirname, 'actividades.html'),
+        tarifas: resolve(__dirname, 'tarifas.html'),
       },
     },
   },
