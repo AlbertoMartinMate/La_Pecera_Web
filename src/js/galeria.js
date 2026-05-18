@@ -1,57 +1,36 @@
-const CLOUD_NAME = 'deymoyy1z';
-const MONTHS = [
-  { id: 'mayo-2025', label: 'Mayo 2025' },
-];
+import galeriaData from '../data/galeria.json';
 
-function buildThumbUrl(publicId) {
-  return `https://res.cloudinary.com/deymoyy1z/image/upload/q_auto,f_auto,w_600/${publicId}`;
-}
-
-function buildOriginalUrl(publicId) {
-  return `https://res.cloudinary.com/deymoyy1z/image/upload/${publicId}`;
-}
-
-async function fetchPhotos(monthId) {
-  const url = `https://res.cloudinary.com/${CLOUD_NAME}/image/list/${monthId}.json`;
-  const res = await fetch(url);
-  if (!res.ok) throw new Error(`Error ${res.status}`);
-  const data = await res.json();
-  return data.resources || [];
-}
-
-function renderFilters(container, activeMonth, onSelect) {
+function renderFilters(container, meses, activeSlug, onSelect) {
   container.innerHTML = '';
-  MONTHS.forEach(({ id, label }) => {
+  meses.forEach(({ nombre, slug }) => {
     const btn = document.createElement('button');
-    btn.className = 'ganadores__filter-btn' + (id === activeMonth ? ' is-active' : '');
-    btn.textContent = label;
-    btn.addEventListener('click', () => onSelect(id));
+    btn.className = 'ganadores__filter-btn' + (slug === activeSlug ? ' is-active' : '');
+    btn.textContent = nombre;
+    btn.addEventListener('click', () => onSelect(slug));
     container.appendChild(btn);
   });
 }
 
-function renderGrid(grid, photos) {
+function renderGrid(grid, fotos) {
   grid.innerHTML = '';
 
-  if (photos.length === 0) {
+  if (!fotos || fotos.length === 0) {
     grid.innerHTML = '<p class="ganadores__empty">No hay fotos disponibles para este mes.</p>';
     return;
   }
 
-  photos.forEach((photo) => {
-    const thumb = buildThumbUrl(photo.public_id);
-    const original = buildOriginalUrl(photo.public_id);
-    const filename = photo.public_id.split('/').pop();
+  fotos.forEach((url, i) => {
+    const filename = url.split('/').pop().split('?')[0] || `foto-${i + 1}`;
 
     const card = document.createElement('div');
     card.className = 'ganadores__card';
     card.innerHTML = `
-      <img src="${thumb}" alt="Ganador del mes" loading="lazy" />
+      <img src="${url}" alt="Foto ganadores mes ${i + 1}" loading="lazy" />
       <div class="ganadores__card-overlay">
         <a
           class="ganadores__download"
-          href="${original}"
-          download="${filename}.jpg"
+          href="${url}"
+          download="${filename}"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Descargar foto"
@@ -69,41 +48,28 @@ function renderGrid(grid, photos) {
   });
 }
 
-function renderSkeleton(grid, count = 6) {
-  grid.innerHTML = Array.from({ length: count })
-    .map(() => '<div class="ganadores__card ganadores__card--skeleton"></div>')
-    .join('');
-}
-
 export function initGaleria() {
   const section = document.getElementById('ganadores');
   if (!section) return;
 
   const filtersContainer = section.querySelector('.ganadores__filters');
   const grid = section.querySelector('.ganadores__grid');
-  const errorMsg = section.querySelector('.ganadores__error');
 
-  let activeMonth = MONTHS[0].id;
+  const { meses } = galeriaData;
 
-  async function loadMonth(monthId) {
-    activeMonth = monthId;
-    renderFilters(filtersContainer, activeMonth, loadMonth);
-    renderSkeleton(grid);
-    if (errorMsg) errorMsg.hidden = true;
-
-    try {
-      const photos = await fetchPhotos(monthId);
-      renderGrid(grid, photos);
-    } catch (err) {
-      grid.innerHTML = '';
-      if (errorMsg) {
-        errorMsg.hidden = false;
-        errorMsg.textContent = 'No se pudieron cargar las fotos. Inténtalo de nuevo.';
-      }
-      console.error('[Galería]', err);
-    }
+  if (!meses || meses.length === 0) {
+    grid.innerHTML = '<p class="ganadores__empty">No hay meses disponibles.</p>';
+    return;
   }
 
-  renderFilters(filtersContainer, activeMonth, loadMonth);
-  loadMonth(activeMonth);
+  let activeSlug = meses[0].slug;
+
+  function showMes(slug) {
+    activeSlug = slug;
+    renderFilters(filtersContainer, meses, activeSlug, showMes);
+    const mes = meses.find(m => m.slug === slug);
+    renderGrid(grid, mes ? mes.fotos : []);
+  }
+
+  showMes(activeSlug);
 }
