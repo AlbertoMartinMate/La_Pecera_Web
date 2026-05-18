@@ -4,26 +4,18 @@ import galeriaData from '../data/galeria.json';
 
 function buildMonthCard(mes) {
   const preview = mes.fotos.slice(0, 6);
-  const collageImgs = preview
-    .map(url => `<img src="${url}" alt="" loading="lazy" />`)
-    .join('');
-
   const card = document.createElement('div');
   card.className = 'ganadores__month-card';
   card.setAttribute('role', 'button');
   card.setAttribute('tabindex', '0');
   card.setAttribute('aria-label', `Ver fotos de ${mes.nombre}`);
   card.innerHTML = `
-    <div class="ganadores__collage">${collageImgs}</div>
+    <div class="ganadores__collage">
+      ${preview.map(url => `<div class="ganadores__collage-cell"><img src="${url}" alt="" loading="lazy" /></div>`).join('')}
+    </div>
     <div class="ganadores__month-overlay">
       <span class="ganadores__month-name">${mes.nombre}</span>
       <span class="ganadores__month-count">${mes.fotos.length} fotos</span>
-      <span class="ganadores__month-cta">
-        Ver galería
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
-        </svg>
-      </span>
     </div>
   `;
   return card;
@@ -34,58 +26,60 @@ function buildMonthCard(mes) {
 function buildModal() {
   const el = document.createElement('div');
   el.className = 'ganadores__modal';
-  el.id = 'ganadores-modal';
   el.setAttribute('role', 'dialog');
   el.setAttribute('aria-modal', 'true');
   el.innerHTML = `
     <div class="ganadores__modal-backdrop"></div>
     <div class="ganadores__modal-box">
 
-      <!-- Topbar -->
-      <div class="ganadores__modal-topbar">
-        <div class="ganadores__modal-left">
-          <button class="ganadores__back-btn" hidden>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <polyline points="15 18 9 12 15 6"/>
-            </svg>
-            Volver al mosaico
-          </button>
-          <span class="ganadores__modal-title"></span>
-        </div>
-        <div class="ganadores__modal-right">
-          <span class="ganadores__modal-counter"></span>
-          <a class="ganadores__modal-download" href="#" download aria-label="Descargar foto" hidden>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <!-- Cabecera grid -->
+      <div class="ganadores__modal-header">
+        <span class="ganadores__modal-title"></span>
+        <button class="ganadores__modal-close" aria-label="Cerrar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Grid de fotos (estilo galería móvil) -->
+      <div class="ganadores__photo-grid"></div>
+
+    </div>
+
+    <!-- Visor pantalla completa (encima de todo) -->
+    <div class="ganadores__viewer" hidden>
+      <button class="ganadores__viewer-close" aria-label="Cerrar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+      <div class="ganadores__viewer-img-wrap">
+        <img class="ganadores__viewer-img" src="" alt="" />
+      </div>
+      <div class="ganadores__viewer-bar">
+        <button class="ganadores__viewer-prev" aria-label="Anterior">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"/>
+          </svg>
+        </button>
+        <div class="ganadores__viewer-center">
+          <span class="ganadores__viewer-counter"></span>
+          <a class="ganadores__viewer-download" href="#" download aria-label="Descargar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
               <polyline points="7 10 12 15 17 10"/>
               <line x1="12" y1="15" x2="12" y2="3"/>
             </svg>
             Descargar
           </a>
-          <button class="ganadores__modal-close" aria-label="Cerrar">&times;</button>
         </div>
-      </div>
-
-      <!-- Vista 1: cuadrícula de miniaturas -->
-      <div class="ganadores__thumb-grid"></div>
-
-      <!-- Vista 2: carrusel -->
-      <div class="ganadores__carousel" hidden>
-        <button class="ganadores__carousel-prev" aria-label="Foto anterior">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="15 18 9 12 15 6"/>
-          </svg>
-        </button>
-        <div class="ganadores__carousel-track">
-          <img class="ganadores__carousel-img" src="" alt="" />
-        </div>
-        <button class="ganadores__carousel-next" aria-label="Foto siguiente">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <button class="ganadores__viewer-next" aria-label="Siguiente">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="9 18 15 12 9 6"/>
           </svg>
         </button>
       </div>
-
     </div>
   `;
   document.body.appendChild(el);
@@ -95,100 +89,77 @@ function buildModal() {
 // ── Estado ─────────────────────────────────────────────────────────────────────
 
 let modalEl = null;
-let currentMes = null;
+let currentFotos = [];
 let currentIndex = 0;
 
-// ── Abrir / cerrar modal ───────────────────────────────────────────────────────
+// ── Modal galería ──────────────────────────────────────────────────────────────
 
-function openModal(mes) {
-  currentMes = mes;
+function openGallery(mes) {
+  currentFotos = mes.fotos;
   modalEl.querySelector('.ganadores__modal-title').textContent = mes.nombre;
+
+  const grid = modalEl.querySelector('.ganadores__photo-grid');
+  grid.innerHTML = '';
+  mes.fotos.forEach((url, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'ganadores__photo-thumb';
+    btn.setAttribute('aria-label', `Ver foto ${i + 1}`);
+    btn.innerHTML = `<img src="${url}" alt="Foto ${i + 1}" loading="lazy" />`;
+    btn.addEventListener('click', () => openViewer(i));
+    grid.appendChild(btn);
+  });
+
   document.body.style.overflow = 'hidden';
   modalEl.classList.add('is-open');
-  showGrid();
 }
 
-function closeModal() {
+function closeGallery() {
   modalEl.classList.remove('is-open');
   document.body.style.overflow = '';
 }
 
-// ── Vista cuadrícula ───────────────────────────────────────────────────────────
+// ── Visor pantalla completa ────────────────────────────────────────────────────
 
-function showGrid() {
-  const grid      = modalEl.querySelector('.ganadores__thumb-grid');
-  const carousel  = modalEl.querySelector('.ganadores__carousel');
-  const backBtn   = modalEl.querySelector('.ganadores__back-btn');
-  const download  = modalEl.querySelector('.ganadores__modal-download');
-  const counter   = modalEl.querySelector('.ganadores__modal-counter');
-
-  carousel.hidden = true;
-  grid.hidden = false;
-  backBtn.hidden = true;
-  download.hidden = true;
-  counter.textContent = `${currentMes.fotos.length} fotos`;
-
-  if (grid.childElementCount === 0) {
-    currentMes.fotos.forEach((url, i) => {
-      const thumb = document.createElement('button');
-      thumb.className = 'ganadores__thumb';
-      thumb.setAttribute('aria-label', `Ver foto ${i + 1}`);
-      thumb.innerHTML = `<img src="${url}" alt="Foto ${i + 1}" loading="lazy" />`;
-      thumb.addEventListener('click', () => showCarousel(i));
-      grid.appendChild(thumb);
-    });
-  }
-}
-
-// ── Vista carrusel ─────────────────────────────────────────────────────────────
-
-function showCarousel(index) {
+function openViewer(index) {
   currentIndex = index;
-
-  const grid     = modalEl.querySelector('.ganadores__thumb-grid');
-  const carousel = modalEl.querySelector('.ganadores__carousel');
-  const backBtn  = modalEl.querySelector('.ganadores__back-btn');
-  const download = modalEl.querySelector('.ganadores__modal-download');
-
-  grid.hidden = true;
-  carousel.hidden = false;
-  backBtn.hidden = false;
-  download.hidden = false;
-
-  updateCarousel();
+  const viewer = modalEl.querySelector('.ganadores__viewer');
+  viewer.hidden = false;
+  updateViewer();
 }
 
-function updateCarousel() {
-  const img     = modalEl.querySelector('.ganadores__carousel-img');
-  const counter = modalEl.querySelector('.ganadores__modal-counter');
-  const download = modalEl.querySelector('.ganadores__modal-download');
-  const prev    = modalEl.querySelector('.ganadores__carousel-prev');
-  const next    = modalEl.querySelector('.ganadores__carousel-next');
+function closeViewer() {
+  const viewer = modalEl.querySelector('.ganadores__viewer');
+  viewer.hidden = true;
+}
 
-  const url = currentMes.fotos[currentIndex];
+function updateViewer() {
+  const url = currentFotos[currentIndex];
+  const img = modalEl.querySelector('.ganadores__viewer-img');
+  const counter = modalEl.querySelector('.ganadores__viewer-counter');
+  const download = modalEl.querySelector('.ganadores__viewer-download');
+  const prev = modalEl.querySelector('.ganadores__viewer-prev');
+  const next = modalEl.querySelector('.ganadores__viewer-next');
+
   img.src = url;
   img.alt = `Foto ${currentIndex + 1}`;
-  counter.textContent = `${currentIndex + 1} / ${currentMes.fotos.length}`;
-
-  const filename = url.split('/').pop() || `foto-${currentIndex + 1}`;
+  counter.textContent = `${currentIndex + 1} / ${currentFotos.length}`;
   download.href = url;
-  download.setAttribute('download', filename);
+  download.setAttribute('download', url.split('/').pop() || `foto-${currentIndex + 1}`);
 
   prev.disabled = currentIndex === 0;
-  next.disabled = currentIndex === currentMes.fotos.length - 1;
+  next.disabled = currentIndex === currentFotos.length - 1;
 }
 
 function navigate(dir) {
   const next = currentIndex + dir;
-  if (next < 0 || next >= currentMes.fotos.length) return;
-
-  const img = modalEl.querySelector('.ganadores__carousel-img');
-  img.classList.add('is-transitioning');
+  if (next < 0 || next >= currentFotos.length) return;
+  const img = modalEl.querySelector('.ganadores__viewer-img');
+  img.style.opacity = '0';
   setTimeout(() => {
     currentIndex = next;
-    updateCarousel();
-    img.classList.remove('is-transitioning');
-  }, 130);
+    updateViewer();
+    img.style.opacity = '1';
+  }, 120);
 }
 
 // ── Init ───────────────────────────────────────────────────────────────────────
@@ -196,7 +167,6 @@ function navigate(dir) {
 export function initGaleria() {
   const section = document.getElementById('ganadores');
   if (!section) return;
-
   const monthsGrid = section.querySelector('.ganadores__months');
   if (!monthsGrid) return;
 
@@ -206,30 +176,25 @@ export function initGaleria() {
   meses.forEach(mes => {
     if (!mes.fotos.length) return;
     const card = buildMonthCard(mes);
-    const open = () => openModal(mes);
+    const open = () => openGallery(mes);
     card.addEventListener('click', open);
-    card.addEventListener('keydown', e => {
-      if (e.key === 'Enter' || e.key === ' ') open();
-    });
+    card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') open(); });
     monthsGrid.appendChild(card);
   });
 
   modalEl = buildModal();
 
-  // Eventos fijos del modal
-  modalEl.querySelector('.ganadores__modal-backdrop').addEventListener('click', closeModal);
-  modalEl.querySelector('.ganadores__modal-close').addEventListener('click', closeModal);
-  modalEl.querySelector('.ganadores__back-btn').addEventListener('click', showGrid);
-  modalEl.querySelector('.ganadores__carousel-prev').addEventListener('click', () => navigate(-1));
-  modalEl.querySelector('.ganadores__carousel-next').addEventListener('click', () => navigate(1));
+  modalEl.querySelector('.ganadores__modal-backdrop').addEventListener('click', closeGallery);
+  modalEl.querySelector('.ganadores__modal-close').addEventListener('click', closeGallery);
+  modalEl.querySelector('.ganadores__viewer-close').addEventListener('click', closeViewer);
+  modalEl.querySelector('.ganadores__viewer-prev').addEventListener('click', () => navigate(-1));
+  modalEl.querySelector('.ganadores__viewer-next').addEventListener('click', () => navigate(1));
 
   document.addEventListener('keydown', e => {
     if (!modalEl.classList.contains('is-open')) return;
-    if (e.key === 'Escape') {
-      const carousel = modalEl.querySelector('.ganadores__carousel');
-      carousel.hidden ? closeModal() : showGrid();
-    }
-    if (e.key === 'ArrowLeft')  navigate(-1);
-    if (e.key === 'ArrowRight') navigate(1);
+    const viewerOpen = !modalEl.querySelector('.ganadores__viewer').hidden;
+    if (e.key === 'Escape') { viewerOpen ? closeViewer() : closeGallery(); }
+    if (viewerOpen && e.key === 'ArrowLeft')  navigate(-1);
+    if (viewerOpen && e.key === 'ArrowRight') navigate(1);
   });
 }
