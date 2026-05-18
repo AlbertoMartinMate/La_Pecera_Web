@@ -4,7 +4,7 @@ import galeriaData from '../data/galeria.json';
 const storiesContainer = document.getElementById('acti-hero-stories');
 if (storiesContainer) {
   const allFotos = galeriaData.meses.flatMap(m => m.fotos);
-  allFotos.slice(-6).forEach(url => {
+  allFotos.slice(-5).forEach(url => {
     const avatar = document.createElement('div');
     avatar.className = 'acti-hero__story';
     avatar.innerHTML = `<img src="${url}" alt="" loading="lazy" />`;
