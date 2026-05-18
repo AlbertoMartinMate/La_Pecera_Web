@@ -1,6 +1,6 @@
 @use 'variables' as *;
 
-// ── Ganadores del Mes ──────────────────────────────────────────────────────────
+// ── Sección ────────────────────────────────────────────────────────────────────
 
 .ganadores {
   background: $color-bg-2;
@@ -8,14 +8,13 @@
   border-top: 1px solid rgba(255, 255, 255, 0.06);
 
   &__inner {
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
   }
 
-  // Header
   &__header {
-    margin-bottom: 48px;
     text-align: center;
+    margin-bottom: 56px;
   }
 
   &__tag {
@@ -55,155 +54,349 @@
     line-height: 1.6;
   }
 
-  // Filtros de mes
-  &__filters {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 48px;
-  }
-
-  &__filter-btn {
-    font-family: $font-body;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: $color-text-muted;
-    background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    padding: 9px 22px;
-    border-radius: 100px;
-    cursor: pointer;
-    transition: color 0.2s, background 0.2s, border-color 0.2s;
-
-    &:hover {
-      color: $color-text;
-      border-color: rgba(255, 255, 255, 0.4);
-    }
-
-    &.is-active {
-      color: $color-bg;
-      background: $color-accent;
-      border-color: $color-accent;
-    }
-  }
-
-  // Grid
-  &__grid {
+  // Grid de tarjetas de mes
+  &__months {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 12px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
   }
+}
 
-  // Card
-  &__card {
-    position: relative;
-    overflow: hidden;
-    aspect-ratio: 4 / 3;
-    border-radius: 4px;
-    background: $color-bg;
-    border: 1px solid rgba(255, 255, 255, 0.06);
+// ── Tarjeta de mes con collage ─────────────────────────────────────────────────
 
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.45s ease;
-    }
+.ganadores__month-card {
+  position: relative;
+  aspect-ratio: 3 / 2;
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
 
-    &:hover img {
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.5);
+
+    .ganadores__collage img {
       transform: scale(1.06);
     }
 
-    &:hover .ganadores__card-overlay {
+    .ganadores__month-overlay {
+      background: rgba(12, 12, 12, 0.68);
+    }
+
+    .ganadores__month-cta {
       opacity: 1;
-    }
-
-    // Skeleton
-    &--skeleton {
-      background: linear-gradient(
-        90deg,
-        rgba(255, 255, 255, 0.04) 25%,
-        rgba(255, 255, 255, 0.08) 50%,
-        rgba(255, 255, 255, 0.04) 75%
-      );
-      background-size: 200% 100%;
-      animation: skeleton-shimmer 1.5s infinite;
+      transform: translateY(0);
     }
   }
 
-  &__card-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(12, 12, 12, 0.72);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+  &:focus-visible {
+    outline: 2px solid $color-accent;
+    outline-offset: 3px;
+  }
+}
+
+// Collage de fondo
+.ganadores__collage {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 2px;
+  background: $color-bg;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+    filter: brightness(0.85);
   }
 
-  &__download {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-family: $font-body;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: $color-bg;
-    background: $color-accent;
-    padding: 11px 22px;
-    border-radius: 3px;
-    transition: opacity 0.2s;
-
-    svg {
-      width: 15px;
-      height: 15px;
-      flex-shrink: 0;
-    }
-
-    &:hover {
-      opacity: 0.85;
-    }
-  }
-
-  // Empty / error states
-  &__empty,
-  &__error {
+  // Si solo hay 1-2 fotos, que ocupen más espacio
+  img:first-child:nth-last-child(1) {
     grid-column: 1 / -1;
-    text-align: center;
-    padding: 60px 20px;
-    font-size: 15px;
-    color: $color-text-muted;
+    grid-row: 1 / -1;
   }
 
-  &__error {
-    color: #ff6b6b;
+  img:first-child:nth-last-child(2),
+  img:first-child:nth-last-child(2) ~ img {
+    grid-row: 1 / -1;
   }
 }
 
-// Shimmer animation
-@keyframes skeleton-shimmer {
-  0%   { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
+// Overlay con info del mes
+.ganadores__month-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(12, 12, 12, 0.55);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background 0.3s ease;
+  padding: 24px;
+  text-align: center;
 }
 
-// ── Responsive ────────────────────────────────────────────────────────────────
+.ganadores__month-name {
+  font-family: $font-display;
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 900;
+  text-transform: uppercase;
+  color: $color-text;
+  letter-spacing: 1px;
+  line-height: 1;
+}
+
+.ganadores__month-count {
+  font-family: $font-body;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: $color-accent;
+}
+
+.ganadores__month-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: $font-body;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: $color-bg;
+  background: $color-accent;
+  padding: 9px 20px;
+  border-radius: 3px;
+  margin-top: 8px;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+
+  svg {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+  }
+}
+
+// ── Modal carrusel ─────────────────────────────────────────────────────────────
+
+.ganadores__modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+
+  &.is-open {
+    opacity: 1;
+    pointer-events: all;
+
+    .ganadores__modal-box {
+      transform: scale(1);
+    }
+  }
+}
+
+.ganadores__modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.92);
+}
+
+.ganadores__modal-box {
+  position: relative;
+  z-index: 1;
+  width: min(92vw, 1000px);
+  max-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  background: $color-bg;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  overflow: hidden;
+  transform: scale(0.96);
+  transition: transform 0.25s ease;
+}
+
+// Barra superior del modal
+.ganadores__modal-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  flex-shrink: 0;
+}
+
+.ganadores__modal-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.ganadores__modal-title {
+  font-family: $font-display;
+  font-size: 18px;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: $color-text;
+  letter-spacing: 0.5px;
+}
+
+.ganadores__modal-counter {
+  font-family: $font-body;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: $color-text-muted;
+}
+
+.ganadores__modal-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.ganadores__modal-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: $font-body;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: $color-bg;
+  background: $color-accent;
+  padding: 9px 18px;
+  border-radius: 3px;
+  transition: opacity 0.2s;
+
+  svg {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+  }
+
+  &:hover { opacity: 0.85; }
+}
+
+.ganadores__modal-close {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  line-height: 1;
+  color: $color-text-muted;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+
+  &:hover {
+    color: $color-text;
+    border-color: rgba(255, 255, 255, 0.35);
+  }
+}
+
+// Zona de imagen con flechas
+.ganadores__carousel {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+}
+
+.ganadores__carousel-track {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ganadores__carousel-img {
+  max-width: 100%;
+  max-height: 75vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  transition: opacity 0.15s ease;
+
+  &.is-transitioning {
+    opacity: 0;
+  }
+}
+
+.ganadores__carousel-prev,
+.ganadores__carousel-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(12, 12, 12, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  color: $color-text;
+  cursor: pointer;
+  transition: background 0.2s, opacity 0.2s;
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  &:hover { background: rgba(198, 255, 0, 0.15); }
+  &:disabled { opacity: 0.25; pointer-events: none; }
+}
+
+.ganadores__carousel-prev { left: 16px; }
+.ganadores__carousel-next { right: 16px; }
+
+// ── Responsive ─────────────────────────────────────────────────────────────────
 
 @media (max-width: #{$bp-md}) {
   .ganadores {
     padding: 64px 20px;
 
-    &__grid {
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 8px;
+    &__months {
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
     }
+  }
+
+  .ganadores__modal-topbar {
+    flex-wrap: wrap;
+    gap: 10px;
   }
 }
 
@@ -211,9 +404,12 @@
   .ganadores {
     padding: 52px 16px;
 
-    &__grid {
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
+    &__months {
+      grid-template-columns: 1fr;
     }
+  }
+
+  .ganadores__modal-download span {
+    display: none;
   }
 }
