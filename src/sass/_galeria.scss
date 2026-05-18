@@ -1,0 +1,219 @@
+@use 'variables' as *;
+
+// ── Ganadores del Mes ──────────────────────────────────────────────────────────
+
+.ganadores {
+  background: $color-bg-2;
+  padding: 88px 36px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+
+  &__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  // Header
+  &__header {
+    margin-bottom: 48px;
+    text-align: center;
+  }
+
+  &__tag {
+    display: inline-block;
+    font-family: $font-body;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $color-accent;
+    background: rgba(198, 255, 0, 0.08);
+    border: 1px solid rgba(198, 255, 0, 0.2);
+    padding: 6px 16px;
+    border-radius: 100px;
+    margin-bottom: 20px;
+  }
+
+  &__title {
+    font-family: $font-display;
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 900;
+    text-transform: uppercase;
+    color: $color-text;
+    line-height: 1;
+    margin: 0;
+
+    em {
+      font-style: normal;
+      color: $color-accent;
+    }
+  }
+
+  &__subtitle {
+    margin-top: 14px;
+    font-size: 15px;
+    color: $color-text-muted;
+    line-height: 1.6;
+  }
+
+  // Filtros de mes
+  &__filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 48px;
+  }
+
+  &__filter-btn {
+    font-family: $font-body;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: $color-text-muted;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 9px 22px;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: color 0.2s, background 0.2s, border-color 0.2s;
+
+    &:hover {
+      color: $color-text;
+      border-color: rgba(255, 255, 255, 0.4);
+    }
+
+    &.is-active {
+      color: $color-bg;
+      background: $color-accent;
+      border-color: $color-accent;
+    }
+  }
+
+  // Grid
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 12px;
+  }
+
+  // Card
+  &__card {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    border-radius: 4px;
+    background: $color-bg;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.45s ease;
+    }
+
+    &:hover img {
+      transform: scale(1.06);
+    }
+
+    &:hover .ganadores__card-overlay {
+      opacity: 1;
+    }
+
+    // Skeleton
+    &--skeleton {
+      background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.04) 25%,
+        rgba(255, 255, 255, 0.08) 50%,
+        rgba(255, 255, 255, 0.04) 75%
+      );
+      background-size: 200% 100%;
+      animation: skeleton-shimmer 1.5s infinite;
+    }
+  }
+
+  &__card-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(12, 12, 12, 0.72);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  &__download {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: $font-body;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $color-bg;
+    background: $color-accent;
+    padding: 11px 22px;
+    border-radius: 3px;
+    transition: opacity 0.2s;
+
+    svg {
+      width: 15px;
+      height: 15px;
+      flex-shrink: 0;
+    }
+
+    &:hover {
+      opacity: 0.85;
+    }
+  }
+
+  // Empty / error states
+  &__empty,
+  &__error {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px 20px;
+    font-size: 15px;
+    color: $color-text-muted;
+  }
+
+  &__error {
+    color: #ff6b6b;
+  }
+}
+
+// Shimmer animation
+@keyframes skeleton-shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+// ── Responsive ────────────────────────────────────────────────────────────────
+
+@media (max-width: #{$bp-md}) {
+  .ganadores {
+    padding: 64px 20px;
+
+    &__grid {
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 8px;
+    }
+  }
+}
+
+@media (max-width: #{$bp-sm}) {
+  .ganadores {
+    padding: 52px 16px;
+
+    &__grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+  }
+}

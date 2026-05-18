@@ -88,6 +88,20 @@
       </div>
     </div>
 
+    <!-- Ganadores del Mes -->
+    <section id="ganadores" class="ganadores">
+      <div class="ganadores__inner">
+        <div class="ganadores__header">
+          <span class="ganadores__tag">Comunidad</span>
+          <h2 class="ganadores__title">Ganadores del <em>Mes</em></h2>
+          <p class="ganadores__subtitle">Las mejores fotos de nuestros jugadores. Selecciona el mes para verlas.</p>
+        </div>
+        <div class="ganadores__filters" role="group" aria-label="Filtrar por mes"></div>
+        <p class="ganadores__error" hidden></p>
+        <div class="ganadores__grid" aria-live="polite"></div>
+      </div>
+    </section>
+
     <footer class="footer">
       <div class="footer__inner">
         <div class="footer__col footer__col--brand">
@@ -122,5 +136,9 @@
 
     <script type="module" src="/src/main.js"></script>
     <script type="module" src="/src/js/actividades.js"></script>
+    <script type="module">
+      import { initGaleria } from '/src/js/galeria.js';
+      initGaleria();
+    </script>
   </body>
 </html>
