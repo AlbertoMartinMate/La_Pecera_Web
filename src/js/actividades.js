@@ -4,7 +4,7 @@ import galeriaData from '../data/galeria.json';
 const heroPhotos = document.getElementById('acti-hero-photos');
 if (heroPhotos) {
   const allFotos = galeriaData.meses.flatMap(m => m.fotos);
-  allFotos.slice(-6).forEach(url => {
+  allFotos.slice(-8).forEach(url => {
     const cell = document.createElement('div');
     cell.className = 'acti-hero__photo';
     cell.innerHTML = `<img src="${url}" alt="" loading="lazy" />`;

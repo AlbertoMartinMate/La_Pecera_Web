@@ -41,25 +41,22 @@
     flex-shrink: 0;
   }
 
-  // Grid 3×2 de fotos recientes
+  // Grid 4×2 de fotos recientes — celdas portrait para fotos de móvil
   &__photos {
     display: grid;
-    grid-template-columns: repeat(3, 110px);
-    grid-template-rows: repeat(2, 110px);
-    gap: 4px;
+    grid-template-columns: repeat(4, 76px);
+    grid-template-rows: repeat(2, 114px);
+    gap: 3px;
     flex-shrink: 0;
     border-radius: 6px;
     overflow: hidden;
     opacity: 0.88;
 
     .acti-hero__photo {
-      width: 110px;
-      height: 110px;
+      width: 76px;
+      height: 114px;
       overflow: hidden;
       background: $color-bg-2;
-      display: flex;
-      align-items: center;
-      justify-content: center;
 
       img {
         width: 100%;
