@@ -176,6 +176,11 @@
       display: block;
     }
 
+    img[alt="Sergio Millie"] {
+      transform: scale(1.8);
+      transform-origin: top center;
+    }
+
     &--placeholder {
       display: flex;
       align-items: center;
