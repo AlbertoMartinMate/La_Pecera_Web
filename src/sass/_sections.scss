@@ -123,7 +123,7 @@
   pointer-events: none;
 }
 
-.col-card.c4 > *:not(.col-card__slides):not(.col-card__slide-overlay) {
+.col-card.c4 > *:not(.col-card__slides):not(.col-card__slide-overlay):not(.col-num) {
   position: relative;
   z-index: 2;
 }
