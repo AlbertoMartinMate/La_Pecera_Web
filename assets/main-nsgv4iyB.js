@@ -1,1 +1,0 @@
-import"./main-DW86Ob-1.js";import{t as e}from"./galeria-B6UmQMRF.js";var t=document.getElementById(`home-stories`);t&&e.meses.flatMap(e=>e.fotos).slice(-5).forEach(e=>{let n=document.createElement(`div`);n.className=`card-stories__avatar`,n.innerHTML=`<img src="${e}" alt="" loading="lazy" />`,t.appendChild(n)});
