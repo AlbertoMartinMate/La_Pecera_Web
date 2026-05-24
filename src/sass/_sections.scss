@@ -10,6 +10,14 @@
   grid-template-columns: repeat(3, 1fr);
 }
 
+.card-row {
+  display: block;
+
+  .col-card {
+    width: 100%;
+  }
+}
+
 .col-card {
   min-height: 360px;
   padding: 32px 44px 44px;
