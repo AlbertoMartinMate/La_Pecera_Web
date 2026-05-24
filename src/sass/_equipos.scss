@@ -74,6 +74,15 @@
   }
 }
 
+// ── Override botón WhatsApp ───────────────────────────────────────────────────
+
+.equipos-cta .btn-whatsapp {
+  background: $color-accent;
+  color: $color-bg;
+
+  svg { fill: $color-bg; }
+}
+
 // ── CTA WhatsApp ──────────────────────────────────────────────────────────────
 
 .equipos-cta {
