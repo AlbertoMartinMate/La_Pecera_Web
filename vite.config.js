@@ -17,6 +17,7 @@ export default defineConfig({
         privacidad: resolve(__dirname, 'privacidad.html'),
         cookies: resolve(__dirname, 'cookies.html'),
         subvencion: resolve(__dirname, 'subvencion.html'),
+        equipos: resolve(__dirname, 'equipos.html'),
       },
     },
   },
