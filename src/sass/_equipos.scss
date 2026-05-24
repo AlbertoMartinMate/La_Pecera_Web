@@ -1,0 +1,247 @@
+@use 'variables' as *;
+
+// ── Hero con slideshow de carteles ────────────────────────────────────────────
+
+.equipos-hero {
+  height: 560px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-bottom: 60px;
+
+  &__slides {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  &__slide {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-color: $color-bg-3;
+    opacity: 0;
+    transition: opacity 1.4s ease;
+
+    &.active {
+      opacity: 1;
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(12, 12, 12, 0.92) 0%, rgba(12, 12, 12, 0.5) 100%);
+    z-index: 1;
+  }
+
+  .hero-content {
+    z-index: 2;
+  }
+
+  .hero-desc {
+    strong {
+      color: $color-text;
+      font-weight: 600;
+    }
+  }
+}
+
+// ── Nav: enlace activo en esta página ─────────────────────────────────────────
+
+.equipos-hero ~ * .nav__links a[aria-current="page"],
+.nav__links a[aria-current="page"] {
+  color: $color-accent;
+}
+
+// ── Contenido: CTA + Carrusel ─────────────────────────────────────────────────
+
+.equipos-content {
+  background: $color-bg-2;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+
+  &__inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 36px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 64px;
+  }
+}
+
+// ── CTA WhatsApp ──────────────────────────────────────────────────────────────
+
+.equipos-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  text-align: center;
+
+  &__title {
+    font-family: $font-display;
+    font-size: 36px;
+    text-transform: uppercase;
+    color: $color-text;
+    letter-spacing: 1px;
+    line-height: 1.1;
+
+    em {
+      font-style: normal;
+      color: $color-accent;
+    }
+  }
+}
+
+// ── Carrusel ──────────────────────────────────────────────────────────────────
+
+.equipos-carousel {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+
+  &__track-wrap {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 3px;
+  }
+
+  &__track {
+    display: flex;
+    transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+  }
+
+  &__slide {
+    flex: 0 0 100%;
+    max-width: 100%;
+
+    img {
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+      display: block;
+      border-radius: 3px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+  }
+
+  &__btn {
+    position: absolute;
+    top: calc(50% - 28px); // 28px = half dot+gap area approx
+    transform: translateY(-50%);
+    z-index: 10;
+    background: rgba(12, 12, 12, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: $color-text;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+
+    svg {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+    }
+
+    &:hover {
+      background: rgba(198, 255, 0, 0.12);
+      border-color: $color-accent;
+      color: $color-accent;
+    }
+
+    &--prev { left: -24px; }
+    &--next { right: -24px; }
+  }
+
+  &__dots {
+    display: flex;
+    gap: 8px;
+  }
+
+  &__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.2s, transform 0.2s;
+
+    &.active {
+      background: $color-accent;
+      transform: scale(1.25);
+    }
+  }
+}
+
+// ── Responsive ────────────────────────────────────────────────────────────────
+
+@media (max-width: #{$bp-md}) {
+  .equipos-hero {
+    height: 460px;
+    align-items: flex-start;
+    padding-top: 60px;
+    padding-bottom: 0;
+
+    .hero-content {
+      padding: 0 20px;
+    }
+
+    .hero-content h1 {
+      font-size: 54px;
+    }
+
+    .hero-desc {
+      font-size: 14px;
+    }
+  }
+
+  .equipos-content__inner {
+    padding: 56px 20px;
+    gap: 48px;
+  }
+
+  .equipos-cta__title {
+    font-size: 26px;
+  }
+
+  .equipos-carousel {
+    &__slide img {
+      height: 280px;
+    }
+
+    &__btn {
+      width: 38px;
+      height: 38px;
+
+      svg { width: 16px; height: 16px; }
+
+      &--prev { left: -4px; }
+      &--next { right: -4px; }
+    }
+  }
+}
+
+@media (max-width: #{$bp-sm}) {
+  .equipos-hero {
+    height: 400px;
+  }
+
+  .equipos-carousel__slide img {
+    height: 220px;
+  }
+}
