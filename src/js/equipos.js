@@ -1,20 +1,3 @@
-// ── Hero slideshow ─────────────────────────────────────────────────────────────
-
-(function initHeroSlideshow() {
-  const slides = document.querySelectorAll('.equipos-hero__slide');
-  if (slides.length < 2) return;
-
-  let current = 0;
-
-  function goTo(index) {
-    slides[current].classList.remove('active');
-    current = (index + slides.length) % slides.length;
-    slides[current].classList.add('active');
-  }
-
-  setInterval(() => goTo(current + 1), 4000);
-})();
-
 // ── Carrusel de equipos ────────────────────────────────────────────────────────
 
 (function initCarousel() {

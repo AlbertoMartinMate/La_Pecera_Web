@@ -10,24 +10,12 @@
   align-items: center;
   padding-bottom: 60px;
 
-  &__slides {
+  &__bg {
     position: absolute;
     inset: 0;
-    z-index: 0;
-  }
-
-  &__slide {
-    position: absolute;
-    inset: 0;
-    background-size: cover;
-    background-position: center;
+    background: url('/src/assets/images/equipos/cartel-1.jpeg') center / cover no-repeat;
     background-color: $color-bg-3;
-    opacity: 0;
-    transition: opacity 1.4s ease;
-
-    &.active {
-      opacity: 1;
-    }
+    z-index: 0;
   }
 
   &__overlay {
@@ -94,6 +82,21 @@
       font-style: normal;
       color: $color-accent;
     }
+  }
+}
+
+// ── Cartel-2 ──────────────────────────────────────────────────────────────────
+
+.equipos-cartel {
+  width: 100%;
+  max-width: 700px;
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 3px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
   }
 }
 
