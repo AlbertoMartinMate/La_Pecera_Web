@@ -18,6 +18,7 @@ export default defineConfig({
         cookies: resolve(__dirname, 'cookies.html'),
         subvencion: resolve(__dirname, 'subvencion.html'),
         equipos: resolve(__dirname, 'equipos.html'),
+        ligas: resolve(__dirname, 'ligas.html'),
       },
     },
   },

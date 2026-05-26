@@ -1,0 +1,201 @@
+@use 'variables' as *;
+
+// ── Hero ──────────────────────────────────────────────────────────────────────
+
+.ligas-hero {
+  height: 480px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-bottom: 40px;
+  background-color: $color-bg-3;
+}
+
+.ligas-hero__bg {
+  position: absolute;
+  inset: 0;
+  background: url('/src/assets/images/ligas/weekend-league.jpeg') center / cover no-repeat;
+  opacity: 0.25;
+  z-index: 0;
+}
+
+.ligas-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(12, 12, 12, 0.96) 0%,
+    rgba(12, 12, 12, 0.6) 100%
+  );
+  z-index: 1;
+}
+
+.ligas-hero .hero-content {
+  z-index: 2;
+}
+
+// ── Contenido ─────────────────────────────────────────────────────────────────
+
+.ligas-content {
+  background: $color-bg;
+  padding: 80px 36px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+
+  &__inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  &__header {
+    margin-bottom: 56px;
+  }
+
+  &__label {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: $color-accent;
+    margin-bottom: 14px;
+  }
+
+  &__title {
+    font-family: $font-display;
+    font-size: clamp(32px, 5vw, 52px);
+    text-transform: uppercase;
+    color: $color-text;
+    line-height: 1;
+    margin: 0;
+
+    em { font-style: normal; color: $color-accent; }
+  }
+}
+
+// ── Grid de ligas ─────────────────────────────────────────────────────────────
+
+.ligas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 340px));
+  gap: 28px;
+}
+
+// ── Tarjeta de liga ───────────────────────────────────────────────────────────
+
+.liga-card {
+  background: $color-bg-2;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.25s, transform 0.25s;
+
+  &:hover {
+    border-color: rgba(198, 255, 0, 0.22);
+    transform: translateY(-3px);
+  }
+
+  &__poster {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    background: $color-bg-3;
+    flex-shrink: 0;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    &:hover img { transform: scale(1.03); }
+  }
+
+  &__body {
+    padding: 24px 24px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
+  }
+
+  &__status {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: $color-accent;
+  }
+
+  &__name {
+    font-family: $font-display;
+    font-size: 24px;
+    text-transform: uppercase;
+    color: $color-text;
+    line-height: 1.1;
+    margin: 0;
+  }
+
+  &__desc {
+    font-size: 13px;
+    line-height: 1.65;
+    color: $color-text-muted;
+    margin: 0;
+    flex: 1;
+  }
+
+  &__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+    align-self: flex-start;
+    text-decoration: none;
+
+    svg {
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+    }
+  }
+}
+
+// ── Próximamente ──────────────────────────────────────────────────────────────
+
+.ligas-coming {
+  margin-top: 56px;
+  padding-top: 36px;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+
+  p {
+    font-size: 14px;
+    color: $color-text-muted;
+
+    a {
+      color: $color-accent;
+      text-decoration: none;
+
+      &:hover { text-decoration: underline; }
+    }
+  }
+}
+
+// ── Responsive ────────────────────────────────────────────────────────────────
+
+@media (max-width: $bp-md) {
+  .ligas-hero { height: 380px; }
+
+  .ligas-content { padding: 60px 24px; }
+}
+
+@media (max-width: $bp-sm) {
+  .ligas-hero { height: 320px; }
+
+  .ligas-content { padding: 48px 16px; }
+
+  .ligas-grid { grid-template-columns: 1fr; }
+}
