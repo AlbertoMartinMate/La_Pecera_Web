@@ -50,12 +50,10 @@
   background: $color-bg;
   z-index: 2;
   pointer-events: none;
-  animation: heroCoverFade 0.8s ease 1.2s forwards;
-}
+  opacity: 1;
+  transition: opacity 0.8s ease;
 
-@keyframes heroCoverFade {
-  from { opacity: 1; }
-  to   { opacity: 0; }
+  &.hidden { opacity: 0; }
 }
 
 .hero-overlay {
