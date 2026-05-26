@@ -76,6 +76,7 @@
 
 .col-card p {
   font-size: 14px;
+  font-weight: 500;
   color: #fff;
   max-width: 380px;
   line-height: 1.65;
@@ -144,7 +145,7 @@
   gap: 12px;
   margin-top: auto;
   padding-top: 16px;
-  border-top: 1px solid rgba(255,255,255,0.08);
+  border-top: 1px solid rgba(255,255,255,0.25);
   text-decoration: none;
   transition: opacity 0.2s;
 
