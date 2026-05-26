@@ -19,16 +19,40 @@
   letter-spacing: 2px;
   text-transform: uppercase;
   color: $color-text;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
+  text-align: center;
 
   span { color: $color-accent; }
 }
 
-.footer__col--brand p {
-  font-size: 13px;
-  color: $color-text-muted;
-  max-width: 280px;
-  line-height: 1.65;
+.footer__social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+.footer__social-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  color: $color-accent;
+  transition: opacity 0.2s;
+
+  &:hover { opacity: 0.75; }
+
+  svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  span {
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: $color-text-muted;
+  }
 }
 
 .footer__col h4 {
@@ -42,7 +66,7 @@
 .footer__col nav {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 6px;
 
   a {
     font-size: 12px;
