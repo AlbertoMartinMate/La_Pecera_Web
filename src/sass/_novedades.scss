@@ -1,0 +1,328 @@
+@use 'variables' as *;
+
+// ── Sección Novedades ─────────────────────────────────────────────────────────
+
+.novedades {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  min-height: 520px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+// ── Panel izquierdo ───────────────────────────────────────────────────────────
+
+.novedades__left {
+  background: $color-bg;
+  padding: 64px 52px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 28px;
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.novedades__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: $color-accent;
+  background: rgba(198, 255, 0, 0.07);
+  border: 1px solid rgba(198, 255, 0, 0.22);
+  padding: 6px 16px;
+  border-radius: 100px;
+  width: fit-content;
+
+  &::before {
+    content: '';
+    display: block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: $color-accent;
+    animation: nov-blink 1.6s ease-in-out infinite;
+  }
+}
+
+@keyframes nov-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.25; }
+}
+
+.novedades__title {
+  font-family: $font-display;
+  font-size: clamp(48px, 7vw, 84px);
+  font-weight: 900;
+  text-transform: uppercase;
+  color: $color-accent;
+  line-height: 0.92;
+  margin: 0;
+  letter-spacing: -1px;
+}
+
+.novedades__desc {
+  font-size: 15px;
+  line-height: 1.7;
+  color: $color-text-muted;
+  max-width: 360px;
+  margin: 0;
+}
+
+// ── Panel derecho — carousel ──────────────────────────────────────────────────
+
+.novedades__carousel {
+  position: relative;
+  overflow: hidden;
+  background: $color-bg-2;
+  display: flex;
+  align-items: stretch;
+}
+
+.nov-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  font-size: 14px;
+  color: $color-text-muted;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+// Track
+.nov-track {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nov-slide {
+  min-width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-in;
+  overflow: hidden;
+  flex-shrink: 0;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  &:hover img {
+    transform: scale(1.03);
+  }
+}
+
+// Arrows
+.nov-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 4;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(12, 12, 12, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: $color-text;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, border-color 0.2s;
+  padding: 0;
+
+  svg { width: 18px; height: 18px; }
+
+  &:hover {
+    background: $color-accent;
+    border-color: $color-accent;
+    color: #000;
+  }
+
+  &--prev { left: 14px; }
+  &--next { right: 14px; }
+}
+
+// Dots
+.nov-dots {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 7px;
+  z-index: 4;
+}
+
+.nov-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.3s, transform 0.3s;
+
+  &.active {
+    background: $color-accent;
+    transform: scale(1.35);
+  }
+}
+
+// ── Lightbox ──────────────────────────────────────────────────────────────────
+
+.nov-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+
+  &.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+
+.nov-lightbox__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.93);
+  cursor: pointer;
+}
+
+.nov-lightbox__stage {
+  position: relative;
+  z-index: 1;
+  max-width: 92vw;
+  max-height: 92vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nov-lightbox__img {
+  max-width: 90vw;
+  max-height: 88vh;
+  object-fit: contain;
+  border-radius: 4px;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.7);
+  display: block;
+}
+
+.nov-lightbox__close {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: $color-text;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  z-index: 2;
+  padding: 0;
+
+  svg { width: 20px; height: 20px; }
+
+  &:hover { background: rgba(255, 255, 255, 0.2); }
+}
+
+.nov-lightbox__prev,
+.nov-lightbox__next {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: $color-text;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, border-color 0.2s;
+  z-index: 2;
+  padding: 0;
+
+  svg { width: 22px; height: 22px; }
+
+  &:hover {
+    background: $color-accent;
+    border-color: $color-accent;
+    color: #000;
+  }
+}
+
+.nov-lightbox__prev { left: 20px; }
+.nov-lightbox__next { right: 20px; }
+
+.nov-lightbox__counter {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: 1px;
+  z-index: 2;
+}
+
+// ── Responsive ────────────────────────────────────────────────────────────────
+
+@media (max-width: $bp-nav) {
+  .novedades {
+    grid-template-columns: 1fr;
+  }
+
+  .novedades__left {
+    padding: 48px 28px;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .novedades__title {
+    font-size: clamp(42px, 12vw, 64px);
+  }
+
+  .novedades__carousel {
+    min-height: 320px;
+  }
+}
+
+@media (max-width: $bp-sm) {
+  .novedades__left {
+    padding: 40px 20px;
+    gap: 20px;
+  }
+
+  .nov-lightbox__prev { left: 8px; }
+  .nov-lightbox__next { right: 8px; }
+  .nov-arrow--prev    { left: 8px; }
+  .nov-arrow--next    { right: 8px; }
+}
