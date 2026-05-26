@@ -1,114 +1,200 @@
 @use 'variables' as *;
 
-// ── Sección Novedades ─────────────────────────────────────────────────────────
+// ── Barra verde "Últimas Noticias" ────────────────────────────────────────────
 
-.novedades {
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  min-height: 520px;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-// ── Panel izquierdo ───────────────────────────────────────────────────────────
-
-.novedades__left {
-  background: $color-bg;
-  padding: 64px 52px;
+.news-bar {
+  background: $color-accent;
+  padding: 0 36px;
+  height: 44px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 28px;
-  border-right: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-.novedades__tag {
-  display: inline-flex;
   align-items: center;
-  gap: 8px;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: $color-accent;
-  background: rgba(198, 255, 0, 0.07);
-  border: 1px solid rgba(198, 255, 0, 0.22);
-  padding: 6px 16px;
-  border-radius: 100px;
-  width: fit-content;
 
-  &::before {
-    content: '';
-    display: block;
-    width: 7px;
-    height: 7px;
+  &__inner {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  &__live {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: $color-bg;
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  &__dot {
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
-    background: $color-accent;
-    animation: nov-blink 1.6s ease-in-out infinite;
+    background: $color-bg;
+    flex-shrink: 0;
+    animation: nov-blink 1.4s ease-in-out infinite;
+  }
+
+  &__divider {
+    color: rgba(12, 12, 12, 0.28);
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  &__text {
+    font-size: 12px;
+    font-weight: 500;
+    color: $color-bg;
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__cta {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: $color-bg;
+    text-decoration: none;
+    border: 1.5px solid rgba(12, 12, 12, 0.3);
+    padding: 5px 16px;
+    border-radius: 2px;
+    flex-shrink: 0;
+    white-space: nowrap;
+    transition: background 0.2s;
+
+    &:hover { background: rgba(12, 12, 12, 0.1); }
   }
 }
 
 @keyframes nov-blink {
   0%, 100% { opacity: 1; }
-  50%       { opacity: 0.25; }
+  50%       { opacity: 0.18; }
+}
+
+// ── Sección Novedades ─────────────────────────────────────────────────────────
+
+.novedades {
+  position: relative;
+  min-height: 580px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+// Fondo con crossfade
+.novedades__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.novedades__bg-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.6s ease;
+
+  &.active { opacity: 1; }
+}
+
+// Gradiente oscuro sobre el fondo
+.novedades__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    rgba(12, 12, 12, 0.93) 0%,
+    rgba(12, 12, 12, 0.78) 52%,
+    rgba(12, 12, 12, 0.38) 100%
+  );
+  z-index: 1;
+}
+
+// Contenido sobre el fondo
+.novedades__inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 52px;
+  display: flex;
+  flex-direction: column;
+  gap: 52px;
+}
+
+.novedades__content {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  max-width: 520px;
+}
+
+.novedades__tag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: $color-accent;
 }
 
 .novedades__title {
   font-family: $font-display;
-  font-size: clamp(48px, 7vw, 84px);
+  font-size: clamp(56px, 9vw, 104px);
   font-weight: 900;
   text-transform: uppercase;
   color: $color-accent;
-  line-height: 0.92;
+  line-height: 0.88;
   margin: 0;
   letter-spacing: -1px;
 }
 
 .novedades__desc {
   font-size: 15px;
-  line-height: 1.7;
-  color: $color-text-muted;
-  max-width: 360px;
+  line-height: 1.72;
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 420px;
   margin: 0;
 }
 
-// ── Panel derecho — carousel ──────────────────────────────────────────────────
+.novedades__btn {
+  border: none;
+  cursor: pointer;
+  align-self: flex-start;
+  margin-top: 4px;
+}
 
-.novedades__carousel {
-  position: relative;
+// ── Círculos de imágenes ──────────────────────────────────────────────────────
+
+.novedades__circles {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.nov-circle {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
   overflow: hidden;
+  border: 2px solid rgba(198, 255, 0, 0.22);
   background: $color-bg-2;
-  display: flex;
-  align-items: stretch;
-}
-
-.nov-empty {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  font-size: 14px;
-  color: $color-text-muted;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-
-// Track
-.nov-track {
-  display: flex;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.nov-slide {
-  min-width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   cursor: zoom-in;
-  overflow: hidden;
   flex-shrink: 0;
+  padding: 0;
+  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 
   img {
     width: 100%;
@@ -120,66 +206,12 @@
     user-select: none;
   }
 
-  &:hover img {
-    transform: scale(1.03);
-  }
-}
-
-// Arrows
-.nov-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 4;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: rgba(12, 12, 12, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  color: $color-text;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.2s, border-color 0.2s;
-  padding: 0;
-
-  svg { width: 18px; height: 18px; }
-
   &:hover {
-    background: $color-accent;
     border-color: $color-accent;
-    color: #000;
-  }
+    transform: scale(1.06);
+    box-shadow: 0 0 32px rgba(198, 255, 0, 0.2);
 
-  &--prev { left: 14px; }
-  &--next { right: 14px; }
-}
-
-// Dots
-.nov-dots {
-  position: absolute;
-  bottom: 16px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 7px;
-  z-index: 4;
-}
-
-.nov-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.3);
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  transition: background 0.3s, transform 0.3s;
-
-  &.active {
-    background: $color-accent;
-    transform: scale(1.35);
+    img { transform: scale(1.08); }
   }
 }
 
@@ -212,8 +244,6 @@
 .nov-lightbox__stage {
   position: relative;
   z-index: 1;
-  max-width: 92vw;
-  max-height: 92vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -247,8 +277,7 @@
   padding: 0;
 
   svg { width: 20px; height: 20px; }
-
-  &:hover { background: rgba(255, 255, 255, 0.2); }
+  &:hover { background: rgba(255, 255, 255, 0.22); }
 }
 
 .nov-lightbox__prev,
@@ -266,7 +295,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.2s, border-color 0.2s;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
   z-index: 2;
   padding: 0;
 
@@ -288,7 +317,7 @@
   left: 50%;
   transform: translateX(-50%);
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(255, 255, 255, 0.5);
   letter-spacing: 1px;
   z-index: 2;
 }
@@ -296,33 +325,39 @@
 // ── Responsive ────────────────────────────────────────────────────────────────
 
 @media (max-width: $bp-nav) {
-  .novedades {
-    grid-template-columns: 1fr;
+  .news-bar__text,
+  .news-bar__divider { display: none; }
+
+  .news-bar { padding: 0 20px; }
+
+  .novedades { min-height: auto; }
+
+  .novedades__inner {
+    padding: 56px 28px;
+    gap: 40px;
   }
 
-  .novedades__left {
-    padding: 48px 28px;
-    border-right: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  }
+  .novedades__title { font-size: clamp(48px, 13vw, 72px); }
 
-  .novedades__title {
-    font-size: clamp(42px, 12vw, 64px);
-  }
-
-  .novedades__carousel {
-    min-height: 320px;
+  .nov-circle {
+    width: 160px;
+    height: 160px;
   }
 }
 
 @media (max-width: $bp-sm) {
-  .novedades__left {
-    padding: 40px 20px;
-    gap: 20px;
+  .novedades__inner {
+    padding: 44px 20px;
+    gap: 32px;
+  }
+
+  .novedades__circles { gap: 16px; }
+
+  .nov-circle {
+    width: 130px;
+    height: 130px;
   }
 
   .nov-lightbox__prev { left: 8px; }
   .nov-lightbox__next { right: 8px; }
-  .nov-arrow--prev    { left: 8px; }
-  .nov-arrow--next    { right: 8px; }
 }
