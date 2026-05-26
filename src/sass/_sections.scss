@@ -42,9 +42,13 @@
   height: 100%;
   object-fit: cover;
   opacity: 0.18;
-  z-index: -1;
   pointer-events: none;
   user-select: none;
+}
+
+.col-card > *:not(.col-card-bg):not(.col-num) {
+  position: relative;
+  z-index: 1;
 }
 
 .col-num {
