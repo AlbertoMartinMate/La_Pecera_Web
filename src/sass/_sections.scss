@@ -46,7 +46,7 @@
   user-select: none;
 }
 
-.col-card > *:not(.col-card-bg):not(.col-num) {
+.col-card > *:not(.col-card-bg):not(.col-num):not(.col-card__slides):not(.col-card__slide-overlay) {
   position: relative;
   z-index: 1;
 }
