@@ -372,21 +372,11 @@
     </footer>
 
     <script>
-      // Oculta el cover del hero cuando YouTube empiece a reproducir
-      window.onYouTubeIframeAPIReady = function () {
-        new YT.Player('hero-yt', {
-          events: {
-            onStateChange: function (e) {
-              if (e.data === YT.PlayerState.PLAYING) {
-                var cover = document.querySelector('.hero-cover');
-                if (cover) cover.classList.add('hidden');
-              }
-            }
-          }
-        });
-      };
+      setTimeout(function () {
+        var cover = document.querySelector('.hero-cover');
+        if (cover) cover.classList.add('hidden');
+      }, 3000);
     </script>
-    <script src="https://www.youtube.com/iframe_api" async></script>
     <script type="module" src="/src/main.js"></script>
     <script type="module">
       import galeriaData from '/src/data/galeria.json';
