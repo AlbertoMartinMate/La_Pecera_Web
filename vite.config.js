@@ -20,6 +20,7 @@ export default defineConfig({
         subvencion: resolve(__dirname, 'subvencion.html'),
         equipos: resolve(__dirname, 'equipos.html'),
         ligas: resolve(__dirname, 'ligas.html'),
+        contacto: resolve(__dirname, 'contacto.html'),
       },
     },
   },
