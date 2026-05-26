@@ -255,3 +255,199 @@
     height: 220px;
   }
 }
+
+// ── Sección Nuestro Equipo ─────────────────────────────────────────────────────
+
+.equipo-staff {
+  background: $color-bg;
+  padding: 88px 36px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+
+  &__inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  &__label {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: $color-accent;
+    margin-bottom: 16px;
+  }
+
+  &__title {
+    font-family: $font-display;
+    font-size: clamp(32px, 5vw, 52px);
+    text-transform: uppercase;
+    color: $color-text;
+    line-height: 1;
+    margin: 0 0 64px;
+
+    em { font-style: normal; color: $color-accent; }
+  }
+
+  &__group {
+    margin-bottom: 60px;
+
+    &:last-child { margin-bottom: 0; }
+  }
+
+  &__group-name {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: rgba(255, 255, 255, 0.35);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 12px;
+    margin-bottom: 36px;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 28px;
+  }
+}
+
+.staff-card {
+  background: $color-bg-2;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 4px;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+  transition: border-color 0.25s;
+
+  &:hover { border-color: rgba(198, 255, 0, 0.18); }
+
+  &__photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid rgba(198, 255, 0, 0.2);
+    background: $color-bg-3;
+    flex-shrink: 0;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    &--placeholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img { opacity: 0.5; }
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    width: 100%;
+  }
+
+  &__name {
+    font-size: 17px;
+    font-weight: 700;
+    color: $color-text;
+    margin: 0;
+  }
+
+  &__role {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: $color-accent;
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 12px;
+    width: 100%;
+  }
+
+  &__wa,
+  &__email {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 12px;
+    padding: 9px 14px;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: opacity 0.2s;
+    width: 100%;
+
+    svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+    &:hover { opacity: 0.8; }
+  }
+
+  &__wa {
+    background: #25d366;
+    color: #fff;
+    font-weight: 600;
+
+    svg { fill: #fff; }
+  }
+
+  &__email {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.7);
+
+    svg { stroke: rgba(255, 255, 255, 0.7); }
+
+    &:hover {
+      border-color: $color-accent;
+      color: $color-accent;
+    }
+  }
+}
+
+@media (max-width: $bp-md) {
+  .equipo-staff {
+    padding: 60px 24px;
+  }
+
+  .equipo-staff__grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+}
+
+@media (max-width: $bp-sm) {
+  .equipo-staff {
+    padding: 48px 16px;
+  }
+
+  .equipo-staff__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .staff-card {
+    padding: 24px 16px;
+  }
+
+  .staff-card__email {
+    font-size: 10px;
+    word-break: break-all;
+  }
+}
