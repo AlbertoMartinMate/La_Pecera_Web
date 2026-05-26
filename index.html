@@ -33,19 +33,9 @@
     </nav>
 
     <section id="hero" class="hero">
-      <div class="hero-video">
-        <iframe
-          id="hero-yt"
-          src="https://www.youtube.com/embed/2_2c5sH1zoc?autoplay=1&mute=1&loop=1&playlist=2_2c5sH1zoc&controls=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1"
-          frameborder="0"
-          allow="autoplay; encrypted-media"
-          title="Hero background video">
-        </iframe>
-      </div>
-      <div class="hero-slide active"></div>
-      <div class="hero-slide"></div>
-      <div class="hero-slide"></div>
-      <div class="hero-cover"></div>
+      <video class="hero-video" autoplay muted loop playsinline>
+        <source src="/hero-video-web.mp4" type="video/mp4">
+      </video>
       <div class="hero-overlay"></div>
       <div class="hero-content">
         <span class="hero-badge">Club de Pádel · Humanes de Madrid</span>
@@ -371,12 +361,6 @@
       </div>
     </footer>
 
-    <script>
-      setTimeout(function () {
-        var cover = document.querySelector('.hero-cover');
-        if (cover) cover.classList.add('hidden');
-      }, 3000);
-    </script>
     <script type="module" src="/src/main.js"></script>
     <script type="module">
       import galeriaData from '/src/data/galeria.json';
