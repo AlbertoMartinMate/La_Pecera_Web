@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 import { resolve } from 'path';
 
 export default defineConfig({
-  base: '/La_Pecera_Web/',
+  base: '/',
   server: {
     open: true,
   },
