@@ -106,6 +106,9 @@ export function initNovedades() {
   }
 
   masBtn?.addEventListener('click', () => lbOpen(0));
+
+  const verBtn = document.getElementById('news-bar-ver');
+  verBtn?.addEventListener('click', e => { e.preventDefault(); lbOpen(0); });
   lb.querySelector('.nov-lightbox__overlay').addEventListener('click', lbClose);
   lb.querySelector('.nov-lightbox__close').addEventListener('click', lbClose);
   lb.querySelector('.nov-lightbox__prev').addEventListener('click', () => lbGo(lbIndex - 1));
