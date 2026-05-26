@@ -1,3 +1,4 @@
+// base: '/' — custom domain lapecerapadelclub.com
 import { defineConfig } from 'vite';
 import { resolve } from 'path';
 
