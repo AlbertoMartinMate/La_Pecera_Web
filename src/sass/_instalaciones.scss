@@ -1,0 +1,155 @@
+@use 'variables' as *;
+
+.inst-hero {
+  position: relative;
+  background: $color-bg;
+  min-height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+}
+
+// ── Carousel ──────────────────────────────────────────────────────────────────
+
+.inst-carousel {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+  background: #000;
+}
+
+.inst-carousel__track-wrap {
+  height: 100%;
+  min-height: 520px;
+  overflow: hidden;
+}
+
+.inst-carousel__track {
+  display: flex;
+  height: 100%;
+  transition: transform 0.6s ease;
+}
+
+.inst-carousel__slide {
+  flex: 0 0 100%;
+  height: 100%;
+  min-height: 520px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    user-select: none;
+    pointer-events: none;
+  }
+}
+
+// ── Botones prev / next ────────────────────────────────────────────────────────
+
+.inst-carousel__btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+
+  svg {
+    width: 22px;
+    height: 22px;
+    stroke: #fff;
+  }
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.75);
+    border-color: $color-accent;
+    svg { stroke: $color-accent; }
+  }
+
+  &--prev { left: 20px; }
+  &--next { right: 20px; }
+}
+
+// ── Dots ───────────────────────────────────────────────────────────────────────
+
+.inst-carousel__dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 2;
+}
+
+.inst-carousel__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+
+  &.active {
+    background: $color-accent;
+    transform: scale(1.3);
+  }
+}
+
+// ── Info bar ───────────────────────────────────────────────────────────────────
+
+.inst-hero__info {
+  padding: 32px 36px;
+  background: $color-bg;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.inst-hero__tag {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: $color-accent;
+  margin-bottom: 8px;
+}
+
+.inst-hero__title {
+  font-family: $font-display;
+  font-size: clamp(32px, 5vw, 52px);
+  text-transform: uppercase;
+  color: $color-text;
+  line-height: 1;
+  margin: 0 0 10px;
+}
+
+.inst-hero__desc {
+  font-size: 14px;
+  font-weight: 500;
+  color: $color-text-muted;
+  margin: 0;
+}
+
+// ── Responsive ────────────────────────────────────────────────────────────────
+
+@media (max-width: #{$bp-md}) {
+  .inst-carousel__track-wrap,
+  .inst-carousel__slide { min-height: 300px; }
+
+  .inst-carousel__btn {
+    width: 38px;
+    height: 38px;
+    svg { width: 18px; height: 18px; }
+  }
+
+  .inst-hero__info { padding: 24px 20px; }
+}

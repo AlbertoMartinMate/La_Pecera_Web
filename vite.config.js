@@ -21,6 +21,7 @@ export default defineConfig({
         equipos: resolve(__dirname, 'equipos.html'),
         ligas: resolve(__dirname, 'ligas.html'),
         contacto: resolve(__dirname, 'contacto.html'),
+        instalaciones: resolve(__dirname, 'instalaciones.html'),
       },
     },
   },

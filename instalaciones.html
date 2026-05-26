@@ -7,7 +7,7 @@
     <link rel="manifest" href="/manifest.json" />
     <meta name="theme-color" content="#0c0c0c" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Equipos · La Pecera Pádel Club</title>
+    <title>Instalaciones · La Pecera Pádel Club</title>
   </head>
   <body>
 
@@ -19,126 +19,78 @@
         </a>
         <ul class="nav__links">
           <li><a href="index.html">Inicio</a></li>
-          <li><a href="instalaciones.html">Instalaciones</a></li>
-          <li><a href="index.html">Tarifas</a></li>
+          <li><a href="instalaciones.html" aria-current="page">Instalaciones</a></li>
+          <li><a href="tarifas.html">Tarifas</a></li>
           <li><a href="escuela.html">Escuela</a></li>
-          <li><a href="equipos.html" aria-current="page">Equipos</a></li>
-          <li><a href="index.html#actividades">Actividades</a></li>
+          <li><a href="actividades.html">Actividades</a></li>
           <li><a href="contacto.html">Contacta con nuestro equipo</a></li>
         </ul>
-        <a class="nav__cta" href="#">Reservar pista</a>
+        <a class="nav__cta" href="https://playtomic.io/tenant/da770b57-43b3-11e8-8674-52540049669c?utm_source=app_android&amp;utm_campaign=share" target="_blank" rel="noopener noreferrer">Reservar pista</a>
         <button class="nav__burger" aria-label="Abrir menú" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
       </div>
     </nav>
 
-    <!-- Hero con slideshow de carteles -->
-    <section class="equipos-hero">
-      <div class="equipos-hero__slides">
-        <div class="equipos-hero__slide equipos-hero__slide--1 active"></div>
-        <div class="equipos-hero__slide equipos-hero__slide--2"></div>
-      </div>
-      <div class="equipos-hero__overlay"></div>
-      <div class="hero-content">
-        <span class="hero-badge">Todos los niveles · Todas las edades</span>
-        <h1>Nuestros <em>Equipos</em></h1>
-        <p class="hero-desc">
-          Inscríbete en nuestros equipos en <strong>Series Nacionales de Pádel</strong>,
-          <strong>Liga Lapi</strong>, <strong>Junior Padel League</strong> (menores)
-          y <strong>Liga Veteranos</strong>. Todos los niveles y edades,
-          en clubs cercanos de la zona.
-        </p>
-      </div>
-    </section>
+    <section class="inst-hero">
+      <div class="inst-carousel">
+        <button class="inst-carousel__btn inst-carousel__btn--prev" aria-label="Anterior">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"/>
+          </svg>
+        </button>
 
-    <!-- CTA WhatsApp + Carrusel -->
-    <section class="equipos-content">
-      <div class="equipos-content__inner">
-
-        <div class="equipos-cta">
-          <h2 class="equipos-cta__title">Inscríbete en nuestros <em>equipos</em></h2>
-          <a class="btn-whatsapp" href="https://wa.me/34618613690" target="_blank" rel="noopener noreferrer">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-            </svg>
-            Más info e inscripciones
-          </a>
-        </div>
-
-        <!-- Carrusel de fotos de equipos -->
-        <div class="equipos-carousel">
-          <button class="equipos-carousel__btn equipos-carousel__btn--prev" aria-label="Anterior">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="15 18 9 12 15 6"/>
-            </svg>
-          </button>
-
-          <div class="equipos-carousel__track-wrap">
-            <div class="equipos-carousel__track" id="equipos-track">
-              <div class="equipos-carousel__slide">
-                <img src="/src/assets/images/equipos/equipo-1.jpeg" alt="Equipo 1" />
-              </div>
-              <div class="equipos-carousel__slide">
-                <img src="/src/assets/images/equipos/equipo-2.jpeg" alt="Equipo 2" />
-              </div>
-              <div class="equipos-carousel__slide">
-                <img src="/src/assets/images/equipos/equipo-3.jpeg" alt="Equipo 3" />
-              </div>
-              <div class="equipos-carousel__slide">
-                <img src="/src/assets/images/equipos/equipo-4.jpeg" alt="Equipo 4" />
-              </div>
-              <div class="equipos-carousel__slide">
-                <img src="/src/assets/images/equipos/equipo-5.jpeg" alt="Equipo 5" />
-              </div>
-              <div class="equipos-carousel__slide">
-                <img src="/src/assets/images/equipos/equipo-6.jpeg" alt="Equipo 6" />
-              </div>
-              <div class="equipos-carousel__slide">
-                <img src="/src/assets/images/equipos/equipo-7.jpeg" alt="Equipo 7" />
-              </div>
-              <div class="equipos-carousel__slide">
-                <img src="/src/assets/images/equipos/equipo-8.jpeg" alt="Equipo 8" />
-              </div>
-              <div class="equipos-carousel__slide">
-                <img src="/src/assets/images/equipos/equipo-9.jpeg" alt="Equipo 9" />
-              </div>
-              <div class="equipos-carousel__slide">
-                <img src="/src/assets/images/equipos/equipo-10.jpeg" alt="Equipo 10" />
-              </div>
-              <div class="equipos-carousel__slide">
-                <img src="/src/assets/images/equipos/equipo-11.jpeg" alt="Equipo 11" />
-              </div>
-              <div class="equipos-carousel__slide">
-                <img src="/src/assets/images/equipos/equipo-12.jpeg" alt="Equipo 12" />
-              </div>
-              <div class="equipos-carousel__slide">
-                <img src="/src/assets/images/equipos/equipo-13.jpeg" alt="Equipo 13" />
-              </div>
-              <div class="equipos-carousel__slide">
-                <img src="/src/assets/images/equipos/equipo-14.jpeg" alt="Equipo 14" />
-              </div>
-              <div class="equipos-carousel__slide">
-                <img src="/src/assets/images/equipos/equipo-15.jpeg" alt="Equipo 15" />
-              </div>
-              <div class="equipos-carousel__slide">
-                <img src="/src/assets/images/equipos/equipo-16.jpeg" alt="Equipo 16" />
-              </div>
-              <div class="equipos-carousel__slide">
-                <img src="/src/assets/images/equipos/equipo-17.jpeg" alt="Equipo 17" />
-              </div>
+        <div class="inst-carousel__track-wrap">
+          <div class="inst-carousel__track" id="inst-track">
+            <div class="inst-carousel__slide">
+              <img src="/src/assets/images/instalaciones/inst-1.jpg" alt="Instalaciones La Pecera" />
+            </div>
+            <div class="inst-carousel__slide">
+              <img src="/src/assets/images/instalaciones/inst-2.jpg" alt="Instalaciones La Pecera" />
+            </div>
+            <div class="inst-carousel__slide">
+              <img src="/src/assets/images/instalaciones/inst-3.jpg" alt="Instalaciones La Pecera" />
+            </div>
+            <div class="inst-carousel__slide">
+              <img src="/src/assets/images/instalaciones/inst-4.jpg" alt="Instalaciones La Pecera" />
+            </div>
+            <div class="inst-carousel__slide">
+              <img src="/src/assets/images/instalaciones/inst-5.jpg" alt="Instalaciones La Pecera" />
+            </div>
+            <div class="inst-carousel__slide">
+              <img src="/src/assets/images/instalaciones/inst-6.jpg" alt="Instalaciones La Pecera" />
+            </div>
+            <div class="inst-carousel__slide">
+              <img src="/src/assets/images/instalaciones/inst-7.jpg" alt="Instalaciones La Pecera" />
+            </div>
+            <div class="inst-carousel__slide">
+              <img src="/src/assets/images/instalaciones/inst-8.jpg" alt="Instalaciones La Pecera" />
             </div>
           </div>
-
-          <button class="equipos-carousel__btn equipos-carousel__btn--next" aria-label="Siguiente">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="9 18 15 12 9 6"/>
-            </svg>
-          </button>
-
-          <div class="equipos-carousel__dots" id="equipos-dots"></div>
         </div>
 
+        <button class="inst-carousel__btn inst-carousel__btn--next" aria-label="Siguiente">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"/>
+          </svg>
+        </button>
+
+        <div class="inst-carousel__dots" id="inst-dots">
+          <button class="inst-carousel__dot active" aria-label="Foto 1"></button>
+          <button class="inst-carousel__dot" aria-label="Foto 2"></button>
+          <button class="inst-carousel__dot" aria-label="Foto 3"></button>
+          <button class="inst-carousel__dot" aria-label="Foto 4"></button>
+          <button class="inst-carousel__dot" aria-label="Foto 5"></button>
+          <button class="inst-carousel__dot" aria-label="Foto 6"></button>
+          <button class="inst-carousel__dot" aria-label="Foto 7"></button>
+          <button class="inst-carousel__dot" aria-label="Foto 8"></button>
+        </div>
+      </div>
+
+      <div class="inst-hero__info">
+        <span class="inst-hero__tag">Nuestro Club</span>
+        <h1 class="inst-hero__title">Instalaciones</h1>
+        <p class="inst-hero__desc">7 pistas cubiertas climatizadas de última generación en Humanes de Madrid.</p>
       </div>
     </section>
 
@@ -172,7 +124,7 @@
         <div class="footer__col">
           <h4>Club</h4>
           <nav>
-            <a href="#">Inicio</a>
+            <a href="index.html">Inicio</a>
             <a href="instalaciones.html">Instalaciones</a>
             <a href="tarifas.html">Tarifas</a>
             <a href="escuela.html">Escuela</a>
@@ -200,6 +152,31 @@
     </footer>
 
     <script type="module" src="/src/main.js"></script>
-    <script type="module" src="/src/js/equipos.js"></script>
+    <script type="module">
+      const track = document.getElementById('inst-track');
+      const dots = document.querySelectorAll('#inst-dots .inst-carousel__dot');
+      const btnPrev = document.querySelector('.inst-carousel__btn--prev');
+      const btnNext = document.querySelector('.inst-carousel__btn--next');
+      const total = dots.length;
+      let current = 0;
+      let timer;
+
+      function goTo(index) {
+        current = (index + total) % total;
+        track.style.transform = `translateX(-${100 * current}%)`;
+        dots.forEach((d, i) => d.classList.toggle('active', i === current));
+      }
+
+      function startAuto() {
+        clearInterval(timer);
+        timer = setInterval(() => goTo(current + 1), 4500);
+      }
+
+      dots.forEach((dot, i) => dot.addEventListener('click', () => { goTo(i); startAuto(); }));
+      btnPrev.addEventListener('click', () => { goTo(current - 1); startAuto(); });
+      btnNext.addEventListener('click', () => { goTo(current + 1); startAuto(); });
+
+      startAuto();
+    </script>
   </body>
 </html>
