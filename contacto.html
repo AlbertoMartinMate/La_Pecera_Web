@@ -205,6 +205,101 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </section>
 
+    <!-- Cómo llegar -->
+    <section class="como-llegar" id="como-llegar">
+      <div class="como-llegar__inner">
+        <span class="como-llegar__label">Ubicación</span>
+        <h2 class="como-llegar__title">Cómo <em>llegar</em></h2>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3039.5!2d-3.816758!3d40.2605729!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd418b5b71880a51:0x7c3342fcbf9b2685!2sLa+Pecera+Padel+Club!5e0!3m2!1ses!2ses"
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="La Pecera Pádel Club en Google Maps"
+        ></iframe>
+        <a class="btn-llegar" href="https://www.google.com/maps/dir//CLUB+DE+PADEL-+ESCUELA-+TORNEOS+-+POZOS+-+LA+PECERA+PADEL+CLUB,+C.+de+los+Siete+Picos,+19,+28970+Humanes+de+Madrid" target="_blank" rel="noopener noreferrer">Cómo llegar</a>
+      </div>
+    </section>
+
+    <!-- Lo que dicen de nosotros -->
+    <section class="reviews" id="resenas">
+      <div class="reviews__inner">
+        <span class="reviews__label">Reseñas</span>
+        <h2 class="reviews__title">Lo que dicen <em>de nosotros</em></h2>
+
+        <div class="reviews__rating">
+          <span class="reviews__rating-score">4,4</span>
+          <div class="reviews__rating-info">
+            <span class="reviews__rating-stars">★★★★★</span>
+            <span class="reviews__rating-count">665 reseñas en Google</span>
+          </div>
+        </div>
+
+        <div class="reviews__carousel">
+          <div class="reviews__carousel-track" id="reviewsTrack">
+
+            <div class="review-card active">
+              <div class="review-card__stars">★★★★★</div>
+              <p class="review-card__text">"Llevo mucho tiempo yendo a este club los fines de semana, es bastante bueno respecto a sus instalaciones, la persona que atiende es muy amable y siempre que lo necesitas te ayuda."</p>
+              <span class="review-card__name">SrVera 96</span>
+            </div>
+
+            <div class="review-card">
+              <div class="review-card__stars">★★★★★</div>
+              <p class="review-card__text">"Las instalaciones son inmejorables, pistas cuidadas con césped azul con arena y de bóveda alta, vestuarios limpios, empleados amables, hay sitio para aparcar. Todo bien la verdad, es una de mis pistas preferidas."</p>
+              <span class="review-card__name">Adrian Amorín</span>
+            </div>
+
+            <div class="review-card">
+              <div class="review-card__stars">★★★★★</div>
+              <p class="review-card__text">"Encantado con el club, los pozos y las clases son geniales, el Mr. Carlos es un excelente profesor."</p>
+              <span class="review-card__name">Jonathan Giraldo</span>
+            </div>
+
+            <div class="review-card">
+              <div class="review-card__stars">★★★★★</div>
+              <p class="review-card__text">"Buen club, con buenas pistas y en buen estado. Un club con ambiente familiar, lleno de buen rollo. Los pozos son una maravilla, bastante económicos y con 2h de juego y premio para ganadores."</p>
+              <span class="review-card__name">Ivan Garcia</span>
+            </div>
+
+            <div class="review-card">
+              <div class="review-card__stars">★★★★★</div>
+              <p class="review-card__text">"Mi club favorito. Buen ambiente y con un trato muy cercano. Cuidan los detalles y a las personas. Muy recomendables sus pozos con los niveles bien ajustados."</p>
+              <span class="review-card__name">Alfonso Villar</span>
+            </div>
+
+            <div class="review-card">
+              <div class="review-card__stars">★★★★★</div>
+              <p class="review-card__text">"De los mejores clubes que he jugado. Todos los profes son de 10, super buen ambiente, lo sentimos como nuestra segunda casa."</p>
+              <span class="review-card__name">Manel Sanchez</span>
+            </div>
+
+            <div class="review-card">
+              <div class="review-card__stars">★★★★★</div>
+              <p class="review-card__text">"El ambiente es excelente y recientemente han renovado las pistas. Precios competitivos y personal muy amable. Los profesores son geniales. Un club que recomiendo a todo el mundo."</p>
+              <span class="review-card__name">Natalia Guardia</span>
+            </div>
+
+          </div>
+        </div>
+
+        <a class="btn-review" href="https://www.google.com/search?q=CLUB+DE+PADEL-+ESCUELA-+TORNEOS+-+POZOS+-+LA+PECERA+PADEL+CLUB+Rese%C3%B1as&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxK2sDSxNDU3MDU2tzCyNDQ0NTUy3cDI-IrR3dkn1EnBxVUhwNHF1UdXwTXYOdTXQVXAPyjYxM_VP1hBVyHAPwpM-zgqBLg6uwY5QtQqgHUGpRanHt6YWLyIlVomAQAT5aVMrgAAAA&rldimm=8949570537829115525&tbm=lcl&hl=es-ES#lkt=LocalPoiReviews" target="_blank" rel="noopener noreferrer">Déjanos tu reseña en Google</a>
+      </div>
+    </section>
+
+    <script>
+      (function () {
+        var cards = document.querySelectorAll('#reviewsTrack .review-card');
+        if (cards.length < 2) return;
+        var current = 0;
+        setInterval(function () {
+          cards[current].classList.remove('active');
+          current = (current + 1) % cards.length;
+          cards[current].classList.add('active');
+        }, 5000);
+      })();
+    </script>
+
     <footer class="footer">
       <div class="footer__inner">
         <div class="footer__col footer__col--brand">
