@@ -162,10 +162,17 @@
   display: flex;
   justify-content: center;
 
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    max-width: 900px;
+    width: 100%;
+  }
+
   &__trigger {
     position: relative;
     display: block;
-    max-width: 900px;
     width: 100%;
     border: none;
     padding: 0;
@@ -256,6 +263,10 @@
 
   .acti-gallery {
     padding: 48px 20px;
+
+    &__grid {
+      grid-template-columns: 1fr;
+    }
   }
 }
 

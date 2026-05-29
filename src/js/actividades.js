@@ -12,9 +12,11 @@ if (storiesContainer) {
   });
 }
 
-const btn = document.getElementById('btn-zoom');
-const modal = document.getElementById('modal-zoom');
-if (btn && modal) {
+function setupZoomModal(btnId, modalId) {
+  const btn = document.getElementById(btnId);
+  const modal = document.getElementById(modalId);
+  if (!btn || !modal) return;
+
   const closeBtn = modal.querySelector('.modal__close');
   const backdrop = modal.querySelector('.modal__backdrop');
 
@@ -33,3 +35,6 @@ if (btn && modal) {
   backdrop.addEventListener('click', closeModal);
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
 }
+
+setupZoomModal('btn-zoom', 'modal-zoom');
+setupZoomModal('btn-zoom-2', 'modal-zoom-2');
