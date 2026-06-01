@@ -190,6 +190,10 @@
   &__user--open &__dropdown {
     display: block;
   }
+
+  &__links-auth {
+    display: none; // hidden on desktop
+  }
 }
 
 @media (max-width: #{$bp-nav}) {
@@ -218,6 +222,47 @@
 
   .nav__actions { display: none; }
   .nav__burger { display: flex; }
+
+  .nav__links-auth {
+    display: block;
+    padding: 8px 20px 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+    .nav__login {
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding: 12px;
+      font-size: 13px;
+    }
+
+    .nav__user {
+      display: none;
+
+      &--visible {
+        display: block;
+      }
+    }
+
+    .nav__user-btn {
+      width: 100%;
+      padding: 10px 0;
+    }
+
+    .nav__dropdown--mobile {
+      display: block;
+      position: static;
+      background: none;
+      border: none;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 4px 0 0 8px;
+
+      a, button {
+        padding: 10px 8px;
+        font-size: 13px;
+      }
+    }
+  }
 }
 
 // Modal login
