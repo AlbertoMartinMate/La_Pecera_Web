@@ -1,0 +1,155 @@
+@use 'variables' as *;
+
+// ── Hero ───────────────────────────────────────────────────────────────────────
+
+.fotos-hero {
+  background: $color-bg-3;
+  padding: 72px 36px 56px;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+
+  &__tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $color-accent;
+    background: rgba(198, 255, 0, 0.08);
+    border: 1px solid rgba(198, 255, 0, 0.2);
+    padding: 6px 16px;
+    border-radius: 100px;
+    margin-bottom: 20px;
+  }
+
+  &__title {
+    font-family: $font-display;
+    font-size: clamp(36px, 6vw, 64px);
+    font-weight: 900;
+    text-transform: uppercase;
+    color: $color-text;
+    line-height: 1;
+    margin: 0;
+
+    em { font-style: normal; color: $color-accent; }
+  }
+
+  &__sub {
+    margin-top: 14px;
+    font-size: 15px;
+    color: $color-text-muted;
+  }
+}
+
+// ── Sección principal ──────────────────────────────────────────────────────────
+
+.fotos-club {
+  background: $color-bg;
+  padding: 64px 36px 88px;
+
+  &__inner { max-width: 1200px; margin: 0 auto; }
+}
+
+// ── Filtro por mes ─────────────────────────────────────────────────────────────
+
+.fotos-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 36px;
+
+  &__btn {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: $color-text-muted;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 8px 18px;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s, background 0.2s;
+
+    &:hover {
+      border-color: rgba(255, 255, 255, 0.4);
+      color: $color-text;
+    }
+
+    &--active {
+      background: $color-accent;
+      border-color: $color-accent;
+      color: $color-bg;
+
+      &:hover {
+        background: $color-accent;
+        border-color: $color-accent;
+        color: $color-bg;
+        opacity: 0.9;
+      }
+    }
+  }
+}
+
+// ── Grid mosaico ───────────────────────────────────────────────────────────────
+
+#fotos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 4px;
+}
+
+.fotos-grid__thumb {
+  display: block;
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%;
+  overflow: hidden;
+  background: #111;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s;
+
+  img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.35s ease;
+  }
+
+  &:hover {
+    opacity: 0.85;
+
+    img { transform: scale(1.04); }
+  }
+}
+
+.fotos-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: $color-text-muted;
+  font-size: 15px;
+  padding: 64px 0;
+}
+
+// ── Responsive ─────────────────────────────────────────────────────────────────
+
+@media (max-width: #{$bp-md}) {
+  .fotos-hero { padding: 52px 20px 40px; }
+  .fotos-club { padding: 48px 20px 64px; }
+
+  #fotos-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3px;
+  }
+}
+
+@media (max-width: #{$bp-sm}) {
+  #fotos-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+  }
+}

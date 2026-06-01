@@ -14,7 +14,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <link rel="manifest" href="/manifest.json" />
     <meta name="theme-color" content="#0c0c0c" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Política de Cookies · La Pecera Pádel Club</title>
+    <title>Fotos del club · La Pecera Pádel Club</title>
   </head>
   <body>
 <!-- Google Tag Manager (noscript) -->
@@ -34,7 +34,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <li><a href="tarifas.html">Tarifas</a></li>
           <li><a href="escuela.html">Escuela</a></li>
           <li><a href="actividades.html">Actividades</a></li>
-          <li><a href="fotos.html">Fotos</a></li>
+          <li><a href="fotos.html" aria-current="page">Fotos</a></li>
           <li><a href="contacto.html">Contacta con nuestro equipo</a></li>
           <li class="nav__links-auth">
             <button class="nav__login" id="btn-login-m">Iniciar sesión</button>
@@ -69,46 +69,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </nav>
 
-    <section class="legal-hero">
-      <span class="hero-badge">Información legal</span>
-      <h1>Política de <em>Cookies</em></h1>
+    <!-- Hero -->
+    <section class="fotos-hero">
+      <span class="fotos-hero__tag">Comunidad</span>
+      <h1 class="fotos-hero__title">Fotos del <em>club</em></h1>
+      <p class="fotos-hero__sub">Los mejores momentos de La Pecera Pádel. Descarga y comparte.</p>
     </section>
 
-    <div class="legal-content">
-
-      <h2>¿Qué son las cookies?</h2>
-      <p>Nosotros y nuestros socios de confianza utilizamos cookies y otras tecnologías en nuestros servicios relacionados, incluso cuando visita nuestro sitio o accede a nuestros servicios.</p>
-      <p>Una "cookie" es una pequeña unidad de información que un sitio web asigna a su dispositivo mientras visita el sitio. Las cookies son muy útiles y pueden usarse para diversos fines. Entre estos, se incluyen permitirle navegar entre las páginas de manera eficaz, habilitar la activación automática de determinadas funciones, recordar sus preferencias y conseguir que la interacción entre usted y nuestros servicios sea más rápida y sencilla.</p>
-      <p>Las cookies también se utilizan para ayudar a garantizar que los anuncios que aparezcan sean pertinentes para usted y sus intereses, y para recopilar datos estadísticos sobre el uso de nuestros servicios.</p>
-
-      <h2>Tipos de cookies que utilizamos</h2>
-      <p>El sitio utiliza los siguientes tipos de cookies:</p>
-      <ul>
-        <li><strong>Cookies de sesión:</strong> se almacenan solo temporalmente durante una sesión de navegación para permitir el uso normal del sistema y se eliminan de su dispositivo al cerrar el navegador.</li>
-        <li><strong>Cookies persistentes:</strong> solo las lee el sitio, se guardan en el equipo durante un periodo fijo y no se eliminan cuando se cierra el navegador. Se utilizan cuando es necesario conocer su identidad en caso de visitas frecuentes, por ejemplo, para almacenar sus preferencias para el próximo inicio de sesión.</li>
-        <li><strong>Cookies de terceros:</strong> establecidas por otros servicios en línea que ejecutan contenido en la página que está visitando, por ejemplo, empresas de análisis de terceros que supervisan y examinan el acceso al sitio Web.</li>
-      </ul>
-      <p>Las cookies no contienen ninguna información que lo identifique personalmente, pero la información personal que almacenamos sobre usted puede estar vinculada, por nosotros, a la información almacenada en las cookies y obtenida a partir de estas.</p>
-
-      <h2>Gestión de cookies</h2>
-      <p>Puede eliminar las cookies mediante las instrucciones incluidas en las preferencias del dispositivo. Sin embargo, si opta por desactivar las cookies, es posible que algunas funciones de nuestro sitio no funcionen correctamente y su experiencia en línea puede ser limitada.</p>
-
-      <h2>Herramientas de análisis</h2>
-      <p>Utilizamos una herramienta basada en la tecnología Snowplow Analytics para recopilar información sobre el uso del sitio. Esta herramienta recopila información como la frecuencia con que los usuarios acceden al sitio, las páginas que visitan, etc. No recopila ninguna información personal y solo la utiliza el proveedor de servicios de alojamiento y uso del sitio para mejorar el sitio y los servicios.</p>
-
-      <h2>Bibliotecas de scripts (Google Web Fonts)</h2>
-      <p>Para presentar el contenido de forma correcta y visualmente atractiva en todos los navegadores, utilizamos bibliotecas de scripts y fuentes como Google Web Fonts en este sitio web. Google Web Fonts se transfiere a la memoria caché del navegador para evitar una carga múltiple.</p>
-      <p>La llamada a bibliotecas de scripts o fuentes activa automáticamente una conexión con el operador de la biblioteca. La política de privacidad del operador de bibliotecas de Google está disponible en <a href="https://www.google.com/policies/privacy" target="_blank" rel="noopener noreferrer">google.com/policies/privacy</a>.</p>
-
-      <h2>Contacto</h2>
-      <p>Si tiene alguna pregunta acerca de la información que recopilamos de usted o del uso que hacemos de ella, puede ponerse en contacto con nosotros:</p>
-      <p><strong>LA PECERA PADEL CLUB</strong><br>
-      Calle Siete Picos, 19 · 28970 Humanes de Madrid<br>
-      Email: <a href="mailto:info@lapecerapadelclub.com">info@lapecerapadelclub.com</a></p>
-
-      <p class="legal-meta">Última modificación: 13/07/2020</p>
-
-    </div>
+    <!-- Galería -->
+    <section id="fotos-club" class="fotos-club">
+      <div class="fotos-club__inner">
+        <div class="fotos-filter"></div>
+        <div id="fotos-grid"></div>
+      </div>
+    </section>
 
     <footer class="footer">
       <div class="footer__inner">
@@ -140,7 +114,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="footer__col">
           <h4>Club</h4>
           <nav>
-            <a href="#">Inicio</a>
+            <a href="index.html">Inicio</a>
             <a href="instalaciones.html">Instalaciones</a>
             <a href="tarifas.html">Tarifas</a>
             <a href="escuela.html">Escuela</a>
@@ -196,5 +170,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 
     <script type="module" src="/src/main.js"></script>
+    <script type="module">
+      import { initFotos } from '/src/js/fotos.js';
+      initFotos();
+    </script>
   </body>
 </html>
