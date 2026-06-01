@@ -236,23 +236,23 @@
       display: none;
     }
 
-    .nav__user-btn {
-      width: 100%;
-      padding: 10px 0;
-    }
-
-    .nav__dropdown--mobile {
+    &__perfil, &__logout {
       display: block;
-      position: static;
+      width: 100%;
+      padding: 12px 0;
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.7);
+      text-align: left;
       background: none;
       border: none;
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
-      padding: 4px 0 0 8px;
+      cursor: pointer;
+      font-family: $font-body;
 
-      a, button {
-        padding: 10px 8px;
-        font-size: 13px;
-      }
+      &:hover { color: $color-accent; }
+    }
+
+    &__perfil {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
     }
   }
 }
