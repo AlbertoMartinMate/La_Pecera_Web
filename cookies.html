@@ -36,7 +36,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <li><a href="actividades.html">Actividades</a></li>
           <li><a href="contacto.html">Contacta con nuestro equipo</a></li>
         </ul>
-        <a class="nav__cta" href="https://playtomic.io/tenant/da770b57-43b3-11e8-8674-52540049669c?utm_source=app_android&amp;utm_campaign=share" target="_blank" rel="noopener noreferrer">Reservar pista</a>
+        <div class="nav__actions">
+          <button class="nav__login" id="btn-login">Iniciar sesión</button>
+          <div class="nav__user" id="nav-user">
+            <button class="nav__user-btn" id="nav-user-btn">
+              <img class="nav__avatar" id="nav-avatar" src="" alt="" />
+              <span id="nav-nombre"></span>
+            </button>
+            <div class="nav__dropdown" id="nav-dropdown">
+              <a href="https://app.lapecerapadelclub.com/dashboard">Mi perfil</a>
+              <button id="btn-logout">Cerrar sesión</button>
+            </div>
+          </div>
+          <a class="nav__cta" href="https://playtomic.io/tenant/da770b57-43b3-11e8-8674-52540049669c?utm_source=app_android&amp;utm_campaign=share" target="_blank" rel="noopener noreferrer">Reservar pista</a>
+        </div>
         <button class="nav__burger" aria-label="Abrir menú" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
@@ -140,6 +153,33 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p>Humanes de Madrid</p>
       </div>
     </footer>
+
+    <!-- Modal Login -->
+    <div class="modal-login" id="modal-login">
+      <div class="modal-login__overlay"></div>
+      <div class="modal-login__card">
+        <button class="modal-login__close" id="modal-login-close" aria-label="Cerrar">&times;</button>
+        <img class="modal-login__logo" src="/src/assets/images/logo_nav.png" alt="La Pecera Pádel" />
+        <p class="modal-login__brand">La <span>Pecera</span> Pádel</p>
+        <form class="modal-login__form" id="form-login" novalidate>
+          <p class="modal-login__error" id="login-error"></p>
+          <label class="modal-login__field">
+            <span>Email</span>
+            <input type="email" name="email" required autocomplete="email" placeholder="tu@email.com" />
+          </label>
+          <label class="modal-login__field">
+            <span>Contraseña</span>
+            <input type="password" name="password" required autocomplete="current-password" placeholder="••••••••" />
+          </label>
+          <label class="modal-login__remember">
+            <input type="checkbox" name="remember" />
+            <span>Recordarme</span>
+          </label>
+          <button type="submit" class="modal-login__submit">Entrar</button>
+          <a class="modal-login__forgot" href="https://app.lapecerapadelclub.com/recuperar" target="_blank" rel="noopener noreferrer">¿Olvidaste tu contraseña?</a>
+        </form>
+      </div>
+    </div>
 
     <script type="module" src="/src/main.js"></script>
   </body>
