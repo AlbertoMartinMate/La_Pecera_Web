@@ -40,19 +40,9 @@ export function initAuth() {
     if (loginError) loginError.textContent = '';
   }
 
-  // Wire up desktop and mobile login/logout buttons
   ['', '-m'].forEach(suffix => {
     const btnLogin = document.getElementById('btn-login' + suffix);
     if (btnLogin) btnLogin.addEventListener('click', abrirModal);
-
-    const navUserBtn = document.getElementById('nav-user-btn' + suffix);
-    const navUser = document.getElementById('nav-user' + suffix);
-    if (navUserBtn && navUser) {
-      navUserBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        navUser.classList.toggle('nav__user--open');
-      });
-    }
 
     const btnLogout = document.getElementById('btn-logout' + suffix);
     if (btnLogout) {
@@ -73,14 +63,6 @@ export function initAuth() {
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') cerrarModal();
-  });
-
-  // Close desktop dropdown on outside click
-  document.addEventListener('click', (e) => {
-    const navUser = document.getElementById('nav-user');
-    if (navUser && !navUser.contains(e.target)) {
-      navUser.classList.remove('nav__user--open');
-    }
   });
 
   if (formLogin) {

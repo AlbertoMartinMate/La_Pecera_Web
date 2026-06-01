@@ -187,7 +187,7 @@
     }
   }
 
-  &__user--open &__dropdown {
+  &__user:hover &__dropdown {
     display: block;
   }
 
