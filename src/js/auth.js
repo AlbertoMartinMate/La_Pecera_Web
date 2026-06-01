@@ -17,8 +17,9 @@ export function initAuth() {
     });
 
     // Mostrar/ocultar todos los bloques de usuario (desktop + móvil)
+    // Usamos style.display para garantizar prioridad sobre cualquier CSS
     document.querySelectorAll('.nav__user').forEach(navUser => {
-      navUser.classList.toggle('nav__user--visible', !!token);
+      navUser.style.display = token ? 'block' : 'none';
       if (token) {
         const avatar = navUser.querySelector('.nav__avatar');
         const nombreEl = navUser.querySelector('.nav__user-btn span');

@@ -120,10 +120,6 @@
   &__user {
     position: relative;
     display: none;
-
-    &--visible {
-      display: block;
-    }
   }
 
   &__user-btn {
@@ -238,10 +234,6 @@
 
     .nav__user {
       display: none;
-
-      &--visible {
-        display: block;
-      }
     }
 
     .nav__user-btn {
