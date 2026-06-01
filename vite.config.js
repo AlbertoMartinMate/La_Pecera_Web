@@ -22,6 +22,7 @@ export default defineConfig({
         ligas: resolve(__dirname, 'ligas.html'),
         contacto: resolve(__dirname, 'contacto.html'),
         instalaciones: resolve(__dirname, 'instalaciones.html'),
+        fotos: resolve(__dirname, 'fotos.html'),
       },
     },
   },
