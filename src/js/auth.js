@@ -8,25 +8,36 @@ export function initAuth() {
 
   function actualizarNav() {
     const token = localStorage.getItem('lp_token');
-    const nombre = localStorage.getItem('lp_nombre');
-    const foto = localStorage.getItem('lp_foto');
+    const nombre = localStorage.getItem('lp_nombre') || '';
+    const foto = localStorage.getItem('lp_foto') || '';
 
-    // Ocultar/mostrar todos los botones de login (desktop + móvil)
     document.querySelectorAll('.nav__login').forEach(btn => {
       btn.style.display = token ? 'none' : '';
     });
 
-    // Mostrar/ocultar todos los bloques de usuario (desktop + móvil)
-    // Usamos style.display para garantizar prioridad sobre cualquier CSS
     document.querySelectorAll('.nav__user').forEach(navUser => {
       navUser.style.display = token ? 'block' : 'none';
-      if (token) {
-        const avatar = navUser.querySelector('.nav__avatar');
-        const nombreEl = navUser.querySelector('.nav__user-btn span');
-        if (avatar) avatar.src = foto || '';
-        if (nombreEl) nombreEl.textContent = nombre || '';
-      }
     });
+
+    if (!token) return;
+
+    // Desktop: avatar o círculo con inicial
+    const avatar = document.getElementById('nav-avatar');
+    const inicial = document.getElementById('nav-inicial');
+    const navNombre = document.getElementById('nav-nombre');
+    const tieneFoto = foto && foto !== 'default.png' && foto !== '';
+
+    if (avatar) avatar.style.display = tieneFoto ? '' : 'none';
+    if (inicial) {
+      inicial.style.display = tieneFoto ? 'none' : 'flex';
+      inicial.textContent = nombre.charAt(0).toUpperCase() || '?';
+    }
+    if (avatar && tieneFoto) avatar.src = foto;
+    if (navNombre) navNombre.textContent = nombre;
+
+    // Móvil: "Hola, nombre"
+    const saludo = document.getElementById('nav-saludo-m');
+    if (saludo) saludo.textContent = nombre ? `Hola, ${nombre}` : '';
   }
 
   function abrirModal() {

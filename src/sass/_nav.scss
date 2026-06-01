@@ -150,6 +150,21 @@
     flex-shrink: 0;
   }
 
+  &__avatar-inicial {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: $color-accent;
+    color: $color-bg;
+    font-size: 15px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    line-height: 1;
+  }
+
   &__dropdown {
     display: none;
     position: absolute;
@@ -234,6 +249,17 @@
 
     .nav__user {
       display: none;
+    }
+
+    &__saludo {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: $color-text;
+      padding: 4px 0 10px;
+      letter-spacing: 0.3px;
+
+      &:empty { display: none; }
     }
 
     &__perfil, &__logout {
