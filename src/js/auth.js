@@ -21,22 +21,23 @@ export function initAuth() {
 
     if (!token) return;
 
-    // Desktop: avatar o círculo con inicial
+    const tieneFoto = foto && foto !== 'default.png';
+    const inicialLetra = nombre.charAt(0).toUpperCase() || '?';
+
+    // Desktop: avatar o círculo con inicial + nombre
     const avatar = document.getElementById('nav-avatar');
     const inicial = document.getElementById('nav-inicial');
     const navNombre = document.getElementById('nav-nombre');
-    const tieneFoto = foto && foto !== 'default.png' && foto !== '';
-
-    if (avatar) avatar.style.display = tieneFoto ? '' : 'none';
-    if (inicial) {
-      inicial.style.display = tieneFoto ? 'none' : 'flex';
-      inicial.textContent = nombre.charAt(0).toUpperCase() || '?';
-    }
-    if (avatar && tieneFoto) avatar.src = foto;
+    if (avatar) { avatar.style.display = tieneFoto ? '' : 'none'; if (tieneFoto) avatar.src = foto; }
+    if (inicial) { inicial.style.display = tieneFoto ? 'none' : 'flex'; inicial.textContent = inicialLetra; }
     if (navNombre) navNombre.textContent = nombre;
 
-    // Móvil: "Hola, nombre"
+    // Móvil: avatar o inicial + "Hola, nombre"
+    const avatarM = document.getElementById('nav-avatar-m');
+    const inicialM = document.getElementById('nav-inicial-m');
     const saludo = document.getElementById('nav-saludo-m');
+    if (avatarM) { avatarM.style.display = tieneFoto ? '' : 'none'; if (tieneFoto) avatarM.src = foto; }
+    if (inicialM) { inicialM.style.display = tieneFoto ? 'none' : 'flex'; inicialM.textContent = inicialLetra; }
     if (saludo) saludo.textContent = nombre ? `Hola, ${nombre}` : '';
   }
 

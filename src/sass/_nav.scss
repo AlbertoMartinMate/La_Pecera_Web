@@ -251,12 +251,24 @@
       display: none;
     }
 
+    &__header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 4px 0 12px;
+
+      .nav__avatar,
+      .nav__avatar-inicial {
+        width: 36px;
+        height: 36px;
+        flex-shrink: 0;
+      }
+    }
+
     &__saludo {
-      display: block;
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 600;
       color: $color-text;
-      padding: 4px 0 10px;
       letter-spacing: 0.3px;
 
       &:empty { display: none; }
