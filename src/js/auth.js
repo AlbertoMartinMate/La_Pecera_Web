@@ -11,20 +11,19 @@ export function initAuth() {
     const nombre = localStorage.getItem('lp_nombre');
     const foto = localStorage.getItem('lp_foto');
 
-    ['', '-m'].forEach(suffix => {
-      const btnLogin = document.getElementById('btn-login' + suffix);
-      const navUser = document.getElementById('nav-user' + suffix);
-      const avatar = document.getElementById('nav-avatar' + suffix);
-      const navNombre = document.getElementById('nav-nombre' + suffix);
+    // Ocultar/mostrar todos los botones de login (desktop + móvil)
+    document.querySelectorAll('.nav__login').forEach(btn => {
+      btn.style.display = token ? 'none' : '';
+    });
 
+    // Mostrar/ocultar todos los bloques de usuario (desktop + móvil)
+    document.querySelectorAll('.nav__user').forEach(navUser => {
+      navUser.classList.toggle('nav__user--visible', !!token);
       if (token) {
-        if (btnLogin) btnLogin.style.display = 'none';
-        if (navUser) navUser.classList.add('nav__user--visible');
+        const avatar = navUser.querySelector('.nav__avatar');
+        const nombreEl = navUser.querySelector('.nav__user-btn span');
         if (avatar) avatar.src = foto || '';
-        if (navNombre) navNombre.textContent = nombre || '';
-      } else {
-        if (btnLogin) btnLogin.style.display = '';
-        if (navUser) navUser.classList.remove('nav__user--visible');
+        if (nombreEl) nombreEl.textContent = nombre || '';
       }
     });
   }
@@ -40,19 +39,19 @@ export function initAuth() {
     if (loginError) loginError.textContent = '';
   }
 
-  ['', '-m'].forEach(suffix => {
-    const btnLogin = document.getElementById('btn-login' + suffix);
-    if (btnLogin) btnLogin.addEventListener('click', abrirModal);
+  // Botones "Iniciar sesión" (desktop + móvil)
+  document.querySelectorAll('.nav__login').forEach(btn => {
+    btn.addEventListener('click', abrirModal);
+  });
 
-    const btnLogout = document.getElementById('btn-logout' + suffix);
-    if (btnLogout) {
-      btnLogout.addEventListener('click', () => {
-        localStorage.removeItem('lp_token');
-        localStorage.removeItem('lp_nombre');
-        localStorage.removeItem('lp_foto');
-        location.reload();
-      });
-    }
+  // Botones "Cerrar sesión" (desktop + móvil)
+  document.querySelectorAll('[id^="btn-logout"]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      localStorage.removeItem('lp_token');
+      localStorage.removeItem('lp_nombre');
+      localStorage.removeItem('lp_foto');
+      location.reload();
+    });
   });
 
   if (btnClose) btnClose.addEventListener('click', cerrarModal);
