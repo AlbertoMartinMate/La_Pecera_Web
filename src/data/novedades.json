@@ -2,11 +2,21 @@
   {
     "imagen": "WhatsApp Image 2026-06-01 at 12.07.26.jpeg",
     "titulo": "¡Escuela de verano!",
-    "descripcion": "Informate de nuestras modaliades de verano para niños y adultos. ¡No te lo pierdas!",
+    "descripcion": "Informate de nuestras modalidades de verano para niños y adultos. ¡No te lo pierdas!",
     "boton": {
       "texto": "Consultar por WhatsApp",
       "tipo": "whatsapp",
       "valor": "34618613690"
+    }
+  },
+  {
+    "imagen": "pantallazo-app.jpeg",
+    "titulo": "¡Nueva app de La Pecera!",
+    "descripcion": "Gestiona tu juego desde el móvil. Consulta el ranking del club, sigue tu evolución de nivel, inscríbete en pozos y lleva el control de tus estadísticas — todo en un solo lugar!",
+    "boton": {
+      "texto": "Descárgatela aquí",
+      "tipo": "url",
+      "valor": "https://app.lapecerapadelclub.com"
     }
   }
 ]
