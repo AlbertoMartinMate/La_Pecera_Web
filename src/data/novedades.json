@@ -18,5 +18,15 @@
       "tipo": "url",
       "valor": "https://app.lapecerapadelclub.com"
     }
+  },
+  {
+    "imagen": "logo-app.jpg",
+    "titulo": "¡Quiniela del Mundial 2026 — La Pecera Pádel Club!",
+    "descripcion": "Predice los partidos del Mundial, acumula puntos y compite contra todos. Gratis e instalable como app. 🏆 Premios para los ganadores: 🥇 1er puesto — Bono monedero 🥈 2º puesto — Bono monedero 🥉 3er puesto — Bono monedero",
+    "boton": {
+      "texto": "Regístrate y únete a la liga",
+      "tipo": "url",
+      "valor": "https://pickgoal.es/#/unirse?codigo=RG50IU8U"
+    }
   }
 ]
