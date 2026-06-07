@@ -180,7 +180,7 @@
 .novedades__circles {
   display: flex;
   gap: 24px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
 }
 
