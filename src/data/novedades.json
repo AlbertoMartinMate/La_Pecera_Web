@@ -30,6 +30,16 @@
     }
   },
   {
+    "imagen": "matricula_2026.jpeg",
+    "titulo": "Reserva tu plaza",
+    "descripcion": "Reserva tu plaza para el curso 26/27",
+    "boton": {
+      "texto": "Mas info",
+      "tipo": "whatsapp",
+      "valor": "34618613690"
+    }
+  },
+  {
     "imagen": "logo-app.jpg",
     "titulo": "¡Quiniela del Mundial 2026 — La Pecera Pádel Club!",
     "descripcion": "Predice los partidos del Mundial, acumula puntos y compite contra todos. Gratis e instalable como app. 🏆 Premios para los ganadores: 🥇 1er puesto — Bono monedero 20€ 🥈 2º puesto — Bono monedero 10€ 🥉 3er puesto — Bono monedero",
