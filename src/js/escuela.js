@@ -1,3 +1,50 @@
+// ── Carrusel de clases ────────────────────────────────────────────────────────
+
+function initCarousel() {
+  const carousel = document.querySelector('.escuela-carousel');
+  if (!carousel) return;
+
+  const slides = carousel.querySelectorAll('.escuela-carousel__slide');
+  const dots = carousel.querySelectorAll('.escuela-carousel__dot');
+  const prevBtn = carousel.querySelector('.escuela-carousel__btn--prev');
+  const nextBtn = carousel.querySelector('.escuela-carousel__btn--next');
+
+  let current = 0;
+  let timer;
+
+  function goTo(index) {
+    slides[current].classList.remove('is-active');
+    dots[current].classList.remove('is-active');
+    current = (index + slides.length) % slides.length;
+    slides[current].classList.add('is-active');
+    dots[current].classList.add('is-active');
+  }
+
+  function startAutoplay() {
+    timer = setInterval(() => goTo(current + 1), 4000);
+  }
+
+  function stopAutoplay() {
+    clearInterval(timer);
+  }
+
+  prevBtn.addEventListener('click', () => { stopAutoplay(); goTo(current - 1); startAutoplay(); });
+  nextBtn.addEventListener('click', () => { stopAutoplay(); goTo(current + 1); startAutoplay(); });
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => { stopAutoplay(); goTo(i); startAutoplay(); });
+  });
+
+  carousel.addEventListener('mouseenter', stopAutoplay);
+  carousel.addEventListener('mouseleave', startAutoplay);
+
+  startAutoplay();
+}
+
+initCarousel();
+
+// ── Modales ───────────────────────────────────────────────────────────────────
+
 function bindModal(btnId, modalId) {
   const btn = document.getElementById(btnId);
   const modal = document.getElementById(modalId);
