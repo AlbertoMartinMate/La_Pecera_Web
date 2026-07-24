@@ -151,8 +151,9 @@
     img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
       display: block;
+      cursor: zoom-in;
     }
   }
 
@@ -421,6 +422,69 @@
     grid-template-columns: 1fr;
     max-width: 560px;
     margin: 0 auto;
+  }
+}
+
+// ── Lightbox carrusel ─────────────────────────────────────────────────────────
+
+.carousel-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s;
+
+  &.is-open {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  &__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.92);
+    cursor: pointer;
+  }
+
+  &__img-wrap {
+    position: relative;
+    z-index: 1;
+    max-width: 92vw;
+    max-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      max-width: 92vw;
+      max-height: 88vh;
+      object-fit: contain;
+      display: block;
+      border-radius: 2px;
+    }
+  }
+
+  &__close {
+    position: fixed;
+    top: 16px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: $color-text-muted;
+    font-size: 36px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 4px 8px;
+    z-index: 2;
+    transition: color 0.2s;
+
+    &:hover {
+      color: $color-accent;
+    }
   }
 }
 

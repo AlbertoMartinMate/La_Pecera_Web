@@ -38,6 +38,35 @@ function initCarousel() {
   carousel.addEventListener('mouseenter', stopAutoplay);
   carousel.addEventListener('mouseleave', startAutoplay);
 
+  // Lightbox al hacer clic en la imagen activa
+  const lightbox = document.getElementById('carousel-lightbox');
+  const lightboxImg = document.getElementById('carousel-lightbox-img');
+  const lightboxClose = lightbox.querySelector('.carousel-lightbox__close');
+  const lightboxBackdrop = lightbox.querySelector('.carousel-lightbox__backdrop');
+
+  function openLightbox(src, alt) {
+    lightboxImg.src = src;
+    lightboxImg.alt = alt;
+    lightbox.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+
+  slides.forEach((slide) => {
+    const img = slide.querySelector('img');
+    img.addEventListener('click', () => {
+      if (slide.classList.contains('is-active')) openLightbox(img.src, img.alt);
+    });
+  });
+
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightboxBackdrop.addEventListener('click', closeLightbox);
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+
   startAutoplay();
 }
 
