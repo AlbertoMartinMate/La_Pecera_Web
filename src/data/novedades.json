@@ -1,25 +1,5 @@
 [
   {
-    "imagen": "bono_flow_2026.jpeg",
-    "titulo": "Bono Flow",
-    "descripcion": "En verano, disfruta el doble",
-    "boton": {
-      "texto": "Mas info",
-      "tipo": "whatsapp",
-      "valor": "34626260349"
-    }
-  },
-  {
-    "imagen": "WhatsApp Image 2026-06-01 at 12.07.26.jpeg",
-    "titulo": "¡Escuela de verano!",
-    "descripcion": "Informate de nuestras modalidades de verano para niños y adultos. ¡No te lo pierdas!",
-    "boton": {
-      "texto": "Consultar por WhatsApp",
-      "tipo": "whatsapp",
-      "valor": "34618613690"
-    }
-  },
-  {
     "imagen": "pantallazo-app.jpeg",
     "titulo": "¡Nueva app de La Pecera!",
     "descripcion": "Gestiona tu juego desde el móvil. Consulta el ranking del club, sigue tu evolución de nivel, inscríbete en pozos y lleva el control de tus estadísticas — todo en un solo lugar!",
@@ -30,23 +10,13 @@
     }
   },
   {
-    "imagen": "matricula_2026.jpeg",
-    "titulo": "Reserva tu plaza",
-    "descripcion": "Reserva tu plaza para el curso 26/27",
+    "imagen": "tarifas.jpeg",
+    "titulo": "Escuela de Pádel",
+    "descripcion": "Consulta las tarifas y modalidades de nuestra escuela. Técnicos federados, todos los niveles y franjas horarias.",
     "boton": {
-      "texto": "Mas info",
-      "tipo": "whatsapp",
-      "valor": "34618613690"
-    }
-  },
-  {
-    "imagen": "logo-app.jpg",
-    "titulo": "¡Quiniela del Mundial 2026 — La Pecera Pádel Club!",
-    "descripcion": "Predice los partidos del Mundial, acumula puntos y compite contra todos. Gratis e instalable como app. 🏆 Premios para los ganadores: 🥇 1er puesto — Bono monedero 20€ 🥈 2º puesto — Bono monedero 10€ 🥉 3er puesto — Bono monedero",
-    "boton": {
-      "texto": "Regístrate y únete a la liga",
+      "texto": "Ver Escuela",
       "tipo": "url",
-      "valor": "https://pickgoal.es/#/unirse?codigo=RG50IU8U"
+      "valor": "escuela.html"
     }
   }
 ]
