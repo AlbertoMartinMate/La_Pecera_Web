@@ -101,6 +101,7 @@ function bindModal(btnId, modalId) {
   });
 }
 
-bindModal('btn-docs', 'modal-docs');
+bindModal('btn-normativa', 'modal-normativa');
+bindModal('btn-calendario', 'modal-calendario');
 bindModal('btn-tarifas', 'modal-tarifas');
 bindModal('btn-matricula', 'modal-matricula');
