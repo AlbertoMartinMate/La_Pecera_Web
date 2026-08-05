@@ -13,29 +13,20 @@ if (storiesContainer) {
 }
 
 // ── Carrusel de carteles ──────────────────────────────────────────────────────
-// Para añadir una imagen: añadir el nombre de archivo al array.
-// Para borrar: eliminar del array y borrar el archivo de src/assets/images/actividades/.
+// Para añadir una imagen: copiar el archivo a src/assets/images/actividades/ y hacer push.
+// Para borrar: eliminar el archivo y hacer push.
 
-const carteles = [
-  'actividades-hero.jpeg',
-  'actividades-hero-2.jpeg',
-];
-
-// Resuelve rutas con hash de Vite en producción
 const cartelesModules = import.meta.glob(
   '/src/assets/images/actividades/*.{jpg,jpeg,png,gif,webp,JPG,JPEG,PNG,GIF,WEBP}',
   { eager: true }
 );
-const cartelesMap = {};
-for (const [path, mod] of Object.entries(cartelesModules)) {
-  cartelesMap[path.split('/').pop()] = mod.default;
-}
+const srcs = Object.entries(cartelesModules)
+  .sort(([a], [b]) => a.localeCompare(b))
+  .map(([, mod]) => mod.default);
 
 function initCarousel() {
   const section = document.getElementById('acti-carousel');
-  if (!section || carteles.length === 0) return;
-
-  const srcs = carteles.map(f => cartelesMap[f]).filter(Boolean);
+  if (!section || srcs.length === 0) return;
   if (srcs.length === 0) return;
 
   const arrow = (dir) => `
