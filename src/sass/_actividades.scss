@@ -154,89 +154,93 @@
   }
 }
 
-// ── Galería / imagen ampliable ────────────────────────────────────────────────
+// ── Carrusel de carteles ──────────────────────────────────────────────────────
 
-.acti-gallery {
+.acti-carousel {
   background: $color-bg;
   padding: 72px 36px;
-  display: flex;
-  justify-content: center;
 
-  &__grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
+  &__viewport {
+    position: relative;
+    overflow: hidden;
     max-width: 900px;
-    width: 100%;
+    margin: 0 auto;
+    border-radius: 4px;
+    height: 500px;
   }
 
-  &__trigger {
-    position: relative;
-    display: block;
-    width: 100%;
-    border: none;
-    padding: 0;
-    background: none;
-    cursor: zoom-in;
-    border-radius: 3px;
-    overflow: hidden;
+  &__track {
+    display: flex;
+    height: 100%;
+    transition: transform 0.5s ease;
+    will-change: transform;
+  }
+
+  &__slide {
+    flex: 0 0 100%;
+    height: 100%;
 
     img {
       width: 100%;
-      height: auto;
+      height: 100%;
+      object-fit: cover;
       display: block;
-      border-radius: 3px;
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      transition: transform 0.4s ease, opacity 0.4s ease;
-    }
-
-    &:hover img {
-      transform: scale(1.02);
-      opacity: 0.9;
-    }
-
-    &:hover .acti-gallery__hint {
-      opacity: 1;
     }
   }
 
-  &__hint {
+  &__arrow {
     position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(12, 12, 12, 0.75);
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    background: rgba(12, 12, 12, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     color: $color-text;
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    padding: 10px 20px;
-    border-radius: 2px;
-    opacity: 0;
-    transition: opacity 0.3s;
-    pointer-events: none;
-    white-space: nowrap;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
 
-    svg {
-      width: 14px;
-      height: 14px;
-      flex-shrink: 0;
+    svg { width: 20px; height: 20px; }
+
+    &:hover {
+      background: rgba(12, 12, 12, 0.85);
+      border-color: $color-accent;
     }
+
+    &--prev { left: 16px; }
+    &--next { right: 16px; }
   }
-}
 
-// ── Modal imagen grande ───────────────────────────────────────────────────────
+  &__dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 16px;
+  }
 
-.modal__box--image {
-  max-width: 1100px;
-  background: $color-bg;
-  padding: 52px 32px 32px;
+  &__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.25);
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.2s, transform 0.2s;
 
-  .modal__images--single {
-    max-width: 100%;
+    &.is-active {
+      background: $color-accent;
+      transform: scale(1.35);
+    }
+
+    &:hover:not(.is-active) {
+      background: rgba(255, 255, 255, 0.5);
+    }
   }
 }
 
@@ -261,12 +265,10 @@
     }
   }
 
-  .acti-gallery {
+  .acti-carousel {
     padding: 48px 20px;
 
-    &__grid {
-      grid-template-columns: 1fr;
-    }
+    &__viewport { height: 300px; }
   }
 }
 

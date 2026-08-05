@@ -12,29 +12,66 @@ if (storiesContainer) {
   });
 }
 
-function setupZoomModal(btnId, modalId) {
-  const btn = document.getElementById(btnId);
-  const modal = document.getElementById(modalId);
-  if (!btn || !modal) return;
+// ── Carrusel de carteles ──────────────────────────────────────────────────────
+// Para añadir una imagen: añadir el nombre de archivo al array.
+// Para borrar: eliminar del array y borrar el archivo de src/assets/images/actividades/.
 
-  const closeBtn = modal.querySelector('.modal__close');
-  const backdrop = modal.querySelector('.modal__backdrop');
+const carteles = [
+  'actividades-hero.jpeg',
+  'actividades-hero-2.jpeg',
+];
 
-  function openModal() {
-    modal.classList.add('is-open');
-    document.body.style.overflow = 'hidden';
+function initCarousel() {
+  const section = document.getElementById('acti-carousel');
+  if (!section || carteles.length === 0) return;
+
+  const arrow = (dir) => `
+    <button class="acti-carousel__arrow acti-carousel__arrow--${dir}" aria-label="${dir === 'prev' ? 'Imagen anterior' : 'Imagen siguiente'}">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polyline points="${dir === 'prev' ? '15 18 9 12 15 6' : '9 6 15 12 9 18'}"/>
+      </svg>
+    </button>`;
+
+  section.innerHTML = `
+    <div class="acti-carousel__viewport">
+      <div class="acti-carousel__track">
+        ${carteles.map((img, i) => `
+          <div class="acti-carousel__slide" aria-hidden="${i !== 0}">
+            <img src="/src/assets/images/actividades/${img}" alt="Actividades en La Pecera Pádel Club" loading="${i === 0 ? 'eager' : 'lazy'}" />
+          </div>`).join('')}
+      </div>
+      ${arrow('prev')}
+      ${arrow('next')}
+    </div>
+    <div class="acti-carousel__dots">
+      ${carteles.map((_, i) => `<button class="acti-carousel__dot${i === 0 ? ' is-active' : ''}" aria-label="Ir a imagen ${i + 1}"></button>`).join('')}
+    </div>`;
+
+  let current = 0;
+  let timer = null;
+  const track = section.querySelector('.acti-carousel__track');
+  const slides = [...section.querySelectorAll('.acti-carousel__slide')];
+  const dots = [...section.querySelectorAll('.acti-carousel__dot')];
+
+  function goTo(index) {
+    slides[current].setAttribute('aria-hidden', 'true');
+    dots[current].classList.remove('is-active');
+    current = (index + carteles.length) % carteles.length;
+    slides[current].setAttribute('aria-hidden', 'false');
+    dots[current].classList.add('is-active');
+    track.style.transform = `translateX(-${current * 100}%)`;
   }
 
-  function closeModal() {
-    modal.classList.remove('is-open');
-    document.body.style.overflow = '';
-  }
+  const start = () => { timer = setInterval(() => goTo(current + 1), 5000); };
+  const stop = () => clearInterval(timer);
 
-  btn.addEventListener('click', openModal);
-  closeBtn.addEventListener('click', closeModal);
-  backdrop.addEventListener('click', closeModal);
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+  section.querySelector('.acti-carousel__arrow--prev').addEventListener('click', () => { stop(); goTo(current - 1); start(); });
+  section.querySelector('.acti-carousel__arrow--next').addEventListener('click', () => { stop(); goTo(current + 1); start(); });
+  dots.forEach((dot, i) => dot.addEventListener('click', () => { stop(); goTo(i); start(); }));
+  section.addEventListener('mouseenter', stop);
+  section.addEventListener('mouseleave', start);
+
+  start();
 }
 
-setupZoomModal('btn-zoom', 'modal-zoom');
-setupZoomModal('btn-zoom-2', 'modal-zoom-2');
+initCarousel();
