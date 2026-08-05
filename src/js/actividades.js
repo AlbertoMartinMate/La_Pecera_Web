@@ -21,9 +21,22 @@ const carteles = [
   'actividades-hero-2.jpeg',
 ];
 
+// Resuelve rutas con hash de Vite en producción
+const cartelesModules = import.meta.glob(
+  '/src/assets/images/actividades/*.{jpg,jpeg,png,gif,webp,JPG,JPEG,PNG,GIF,WEBP}',
+  { eager: true }
+);
+const cartelesMap = {};
+for (const [path, mod] of Object.entries(cartelesModules)) {
+  cartelesMap[path.split('/').pop()] = mod.default;
+}
+
 function initCarousel() {
   const section = document.getElementById('acti-carousel');
   if (!section || carteles.length === 0) return;
+
+  const srcs = carteles.map(f => cartelesMap[f]).filter(Boolean);
+  if (srcs.length === 0) return;
 
   const arrow = (dir) => `
     <button class="acti-carousel__arrow acti-carousel__arrow--${dir}" aria-label="${dir === 'prev' ? 'Imagen anterior' : 'Imagen siguiente'}">
@@ -35,16 +48,16 @@ function initCarousel() {
   section.innerHTML = `
     <div class="acti-carousel__viewport">
       <div class="acti-carousel__track">
-        ${carteles.map((img, i) => `
+        ${srcs.map((src, i) => `
           <div class="acti-carousel__slide" aria-hidden="${i !== 0}">
-            <img src="/src/assets/images/actividades/${img}" alt="Actividades en La Pecera Pádel Club" loading="${i === 0 ? 'eager' : 'lazy'}" />
+            <img src="${src}" alt="Actividades en La Pecera Pádel Club" loading="${i === 0 ? 'eager' : 'lazy'}" />
           </div>`).join('')}
       </div>
       ${arrow('prev')}
       ${arrow('next')}
     </div>
     <div class="acti-carousel__dots">
-      ${carteles.map((_, i) => `<button class="acti-carousel__dot${i === 0 ? ' is-active' : ''}" aria-label="Ir a imagen ${i + 1}"></button>`).join('')}
+      ${srcs.map((_, i) => `<button class="acti-carousel__dot${i === 0 ? ' is-active' : ''}" aria-label="Ir a imagen ${i + 1}"></button>`).join('')}
     </div>`;
 
   let current = 0;
@@ -56,7 +69,7 @@ function initCarousel() {
   function goTo(index) {
     slides[current].setAttribute('aria-hidden', 'true');
     dots[current].classList.remove('is-active');
-    current = (index + carteles.length) % carteles.length;
+    current = (index + srcs.length) % srcs.length;
     slides[current].setAttribute('aria-hidden', 'false');
     dots[current].classList.add('is-active');
     track.style.transform = `translateX(-${current * 100}%)`;
