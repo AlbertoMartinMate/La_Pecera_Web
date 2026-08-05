@@ -1,5 +1,15 @@
 [
   {
+    "imagen": "pwl-26-27.jpeg",
+    "titulo": "🏆 Pecera Weekend League 26/27",
+    "descripcion": "La nueva liga interna de La Pecera Padel Club. Compite por fases, sube de división ganando, y demuestra tu nivel dentro del club — todo gestionado desde nuestra app, sin depender de plataformas externas.\n\n📅 Arranca el 15 de octubre de 2026\n🎾 Categorías masculina, femenina y mixta\n👥 Inscríbete en pareja o solo — si vienes sin compañero, te lo buscamos\n⬆️⬇️ Ascensos y descensos entre fases según tu clasificación\n\n¡Apúntate y demuestra de qué eres capaz!",
+    "boton": {
+      "texto": "Más información",
+      "tipo": "url",
+      "valor": "https://app.lapecerapadelclub.com/ligas"
+    }
+  },
+  {
     "imagen": "pantallazo-app.jpeg",
     "titulo": "¡Nueva app de La Pecera!",
     "descripcion": "Gestiona tu juego desde el móvil. Consulta el ranking del club, sigue tu evolución de nivel, inscríbete en pozos y lleva el control de tus estadísticas — todo en un solo lugar!",
