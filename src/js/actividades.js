@@ -84,6 +84,32 @@ function initCarousel() {
   section.addEventListener('mouseenter', stop);
   section.addEventListener('mouseleave', start);
 
+  // Lightbox al hacer clic en la imagen
+  const lightbox = document.getElementById('carousel-lightbox');
+  const lightboxImg = document.getElementById('carousel-lightbox-img');
+
+  function openLightbox(src, alt) {
+    lightboxImg.src = src;
+    lightboxImg.alt = alt;
+    lightbox.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+
+  slides.forEach(slide => {
+    const img = slide.querySelector('img');
+    img.style.cursor = 'zoom-in';
+    img.addEventListener('click', () => openLightbox(img.src, img.alt));
+  });
+
+  lightbox.querySelector('.carousel-lightbox__close').addEventListener('click', closeLightbox);
+  lightbox.querySelector('.carousel-lightbox__backdrop').addEventListener('click', closeLightbox);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
   start();
 }
 
