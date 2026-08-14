@@ -166,7 +166,7 @@
     max-width: 900px;
     margin: 0 auto;
     border-radius: 4px;
-    height: 500px;
+    height: 620px;
   }
 
   &__track {
@@ -184,6 +184,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: top;
       display: block;
     }
   }
@@ -268,7 +269,7 @@
   .acti-carousel {
     padding: 48px 20px;
 
-    &__viewport { height: 300px; }
+    &__viewport { height: 380px; }
   }
 }
 
