@@ -1,6 +1,31 @@
 {
   "meses": [
     {
+      "nombre": "Septiembre 2026",
+      "slug": "Septiembre-2026",
+      "fotos": [
+        "https://res.cloudinary.com/deymoyy1z/image/upload/q_auto,f_auto,w_1200/v1790938319/WhatsApp_Image_2026-10-02_at_10.22.29_yiczkg.jpg",
+        "https://res.cloudinary.com/deymoyy1z/image/upload/q_auto,f_auto,w_1200/v1790938319/WhatsApp_Image_2026-10-02_at_10.22.28_s2cwzj.jpg",
+        "https://res.cloudinary.com/deymoyy1z/image/upload/q_auto,f_auto,w_1200/v1790938318/WhatsApp_Image_2026-10-02_at_10.22.28_3_lhvto2.jpg",
+        "https://res.cloudinary.com/deymoyy1z/image/upload/q_auto,f_auto,w_1200/v1790938318/WhatsApp_Image_2026-10-02_at_10.22.28_2_qpohko.jpg",
+        "https://res.cloudinary.com/deymoyy1z/image/upload/q_auto,f_auto,w_1200/v1790938318/WhatsApp_Image_2026-10-02_at_10.22.28_1_pdfzet.jpg",
+        "https://res.cloudinary.com/deymoyy1z/image/upload/q_auto,f_auto,w_1200/v1790938316/WhatsApp_Image_2026-10-02_at_10.22.27_uvhqcu.jpg",
+        "https://res.cloudinary.com/deymoyy1z/image/upload/q_auto,f_auto,w_1200/v1790938315/WhatsApp_Image_2026-10-02_at_10.22.27_2_pmnogg.jpg",
+        "https://res.cloudinary.com/deymoyy1z/image/upload/q_auto,f_auto,w_1200/v1790938315/WhatsApp_Image_2026-10-02_at_10.22.27_1_xc57cv.jpg",
+        "https://res.cloudinary.com/deymoyy1z/image/upload/q_auto,f_auto,w_1200/v1790938315/WhatsApp_Image_2026-10-02_at_10.22.26_hsp1ps.jpg",
+        "https://res.cloudinary.com/deymoyy1z/image/upload/q_auto,f_auto,w_1200/v1790938315/WhatsApp_Image_2026-10-02_at_10.22.25_tozq5i.jpg",
+        "https://res.cloudinary.com/deymoyy1z/image/upload/q_auto,f_auto,w_1200/v1790938312/WhatsApp_Image_2026-10-02_at_10.22.24_rvztjk.jpg",
+        "https://res.cloudinary.com/deymoyy1z/image/upload/q_auto,f_auto,w_1200/v1790938311/WhatsApp_Image_2026-10-02_at_10.22.23_1_prw3vh.jpg",
+        "https://res.cloudinary.com/deymoyy1z/image/upload/q_auto,f_auto,w_1200/v1790938311/WhatsApp_Image_2026-10-02_at_10.22.24_1_osiie9.jpg",
+        "https://res.cloudinary.com/deymoyy1z/image/upload/q_auto,f_auto,w_1200/v1790938311/WhatsApp_Image_2026-09-16_at_13.12.05_rzgio4.jpg",
+        "https://res.cloudinary.com/deymoyy1z/image/upload/q_auto,f_auto,w_1200/v1790938311/WhatsApp_Image_2026-10-02_at_10.22.23_krlqic.jpg",
+        "https://res.cloudinary.com/deymoyy1z/image/upload/q_auto,f_auto,w_1200/v1790938311/WhatsApp_Image_2026-09-16_at_13.12.04_cbaat9.jpg",
+        "https://res.cloudinary.com/deymoyy1z/image/upload/q_auto,f_auto,w_1200/v1790938311/WhatsApp_Image_2026-09-16_at_13.12.05_2_xhrvyv.jpg",
+        "https://res.cloudinary.com/deymoyy1z/image/upload/q_auto,f_auto,w_1200/v1790938310/WhatsApp_Image_2026-09-16_at_13.12.04_1_wyyvlr.jpg",
+        "https://res.cloudinary.com/deymoyy1z/image/upload/q_auto,f_auto,w_1200/v1790938310/WhatsApp_Image_2026-09-16_at_13.12.05_1_pxat7n.jpg"
+      ]
+    },
+    {
       "nombre": "Agosto 2026",
       "slug": "agosto-2026",
       "fotos": [
