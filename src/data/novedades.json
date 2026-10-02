@@ -7,6 +7,11 @@
       "texto": "Ver escuela e inscribirse",
       "tipo": "url",
       "valor": "https://playtomic.com/tenant/da770b57-43b3-11e8-8674-52540049669c?utm_source=app_android&utm_campaign=share"
+    },
+    "boton2": {
+      "texto": "Ver escuela",
+      "tipo": "url",
+      "valor": "escuela.html"
     }
   },
   {

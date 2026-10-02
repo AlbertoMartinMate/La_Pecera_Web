@@ -71,6 +71,7 @@ export function initNovedades() {
         <h3 class="nov-lightbox__titulo"></h3>
         <p class="nov-lightbox__descripcion"></p>
         <a class="nov-lightbox__boton" href="" target="_blank" rel="noopener noreferrer"></a>
+        <a class="nov-lightbox__boton nov-lightbox__boton--2" href="" target="_blank" rel="noopener noreferrer"></a>
       </div>
       <button class="nov-lightbox__close" aria-label="Cerrar">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
@@ -97,6 +98,7 @@ export function initNovedades() {
   const lbTitulo      = lb.querySelector('.nov-lightbox__titulo');
   const lbDescripcion = lb.querySelector('.nov-lightbox__descripcion');
   const lbBoton       = lb.querySelector('.nov-lightbox__boton');
+  const lbBoton2      = lb.querySelector('.nov-lightbox__boton--2');
   const lbCounter     = lb.querySelector('.nov-lightbox__counter');
   const total         = items.length;
   let lbIndex         = 0;
@@ -129,6 +131,14 @@ export function initNovedades() {
       lbBoton.style.display = '';
     } else {
       lbBoton.style.display = 'none';
+    }
+
+    if (item.boton2) {
+      lbBoton2.textContent = item.boton2.texto;
+      lbBoton2.href = buildBotonHref(item.boton2);
+      lbBoton2.style.display = '';
+    } else {
+      lbBoton2.style.display = 'none';
     }
 
     const hasInfo = item.titulo || item.descripcion || item.boton;
