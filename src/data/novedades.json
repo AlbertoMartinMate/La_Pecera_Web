@@ -4,7 +4,7 @@
     "titulo": "¡Novedades en la Escuela!",
     "descripcion": "Cada semana nuevas clases y grupos disponibles para todos los niveles. ¡Apúntate y mejora tu juego con nuestros profes!",
     "boton": {
-      "texto": "Ver escuela e inscribirse",
+      "texto": "Inscribirse (Pestaña Academia)",
       "tipo": "url",
       "valor": "https://playtomic.com/tenant/da770b57-43b3-11e8-8674-52540049669c?utm_source=app_android&utm_campaign=share"
     },
