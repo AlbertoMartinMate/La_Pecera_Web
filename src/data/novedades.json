@@ -1,5 +1,15 @@
 [
   {
+    "imagen": "semana-escuela.jpeg",
+    "titulo": "¡Novedades en la Escuela!",
+    "descripcion": "Cada semana nuevas clases y grupos disponibles para todos los niveles. ¡Apúntate y mejora tu juego con nuestros profes!",
+    "boton": {
+      "texto": "Ver escuela e inscribirse",
+      "tipo": "url",
+      "valor": "https://playtomic.com/tenant/da770b57-43b3-11e8-8674-52540049669c?utm_source=app_android&utm_campaign=share"
+    }
+  },
+  {
     "imagen": "pwl-26-27.jpeg",
     "titulo": "🏆 Pecera Weekend League 26/27",
     "descripcion": "La nueva liga interna de La Pecera Padel Club. Compite por fases, sube de división ganando, y demuestra tu nivel dentro del club — todo gestionado desde nuestra app, sin depender de plataformas externas.\n\n📅 Arranca el 15 de octubre de 2026\n🎾 Categorías masculina, femenina y mixta\n👥 Inscríbete en pareja o solo — si vienes sin compañero, te lo buscamos\n⬆️⬇️ Ascensos y descensos entre fases según tu clasificación\n\n¡Apúntate y demuestra de qué eres capaz!",
