@@ -452,4 +452,11 @@
 
     &:hover { color: $color-accent; }
   }
+
+  &__register {
+    text-align: center;
+    font-size: 12px;
+    color: $color-text-muted;
+    margin: 0;
+  }
 }
