@@ -379,6 +379,10 @@
     text-align: center;
   }
 
+  &__error--aviso {
+    color: $color-accent;
+  }
+
   &__field {
     display: flex;
     flex-direction: column;

@@ -46,10 +46,16 @@ export function initAuth() {
     document.body.style.overflow = 'hidden';
   }
 
+  function mostrarMensaje(texto, aviso = false) {
+    if (!loginError) return;
+    loginError.textContent = texto;
+    loginError.classList.toggle('modal-login__error--aviso', aviso);
+  }
+
   function cerrarModal() {
     modal.classList.remove('modal-login--open');
     document.body.style.overflow = '';
-    if (loginError) loginError.textContent = '';
+    mostrarMensaje('');
   }
 
   // Botones "Iniciar sesión" (desktop + móvil)
@@ -83,7 +89,7 @@ export function initAuth() {
       const email = formLogin.email.value;
       const password = formLogin.password.value;
 
-      if (loginError) loginError.textContent = '';
+      mostrarMensaje('');
       const submitBtn = formLogin.querySelector('button[type="submit"]');
       if (submitBtn) submitBtn.disabled = true;
 
@@ -102,10 +108,19 @@ export function initAuth() {
           actualizarNav();
           cerrarModal();
         } else {
-          if (loginError) loginError.textContent = 'Email o contraseña incorrectos';
+          let data = {};
+          try { data = await res.json(); } catch { /* respuesta sin JSON */ }
+          if (res.status === 403 && data.codigo === 'crear_password') {
+            // La app no inicia sesión con la contraseña inicial y envía un enlace para crear otra
+            mostrarMensaje(data.error || 'Por seguridad, hemos enviado un enlace a tu correo para crear una contraseña nueva', true);
+          } else if (res.status === 429) {
+            mostrarMensaje('Demasiados intentos. Espera un minuto y vuelve a probar.');
+          } else {
+            mostrarMensaje('Email o contraseña incorrectos');
+          }
         }
       } catch {
-        if (loginError) loginError.textContent = 'Email o contraseña incorrectos';
+        mostrarMensaje('Email o contraseña incorrectos');
       } finally {
         if (submitBtn) submitBtn.disabled = false;
       }
