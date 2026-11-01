@@ -1,6 +1,39 @@
 {
   "meses": [
     {
+      "nombre": "Octubre 2026",
+      "slug": "Octubre-2026",
+      "fotos": [
+        "https://res.cloudinary.com/deymoyy1z/image/upload/q_auto,f_auto,w_1200/v1793519887/WhatsApp_Image_2026-11-01_at_08.46.24_cha4yx.jpg",
+        "https://res.cloudinary.com/deymoyy1z/image/upload/q_auto,f_auto,w_1200/v1793519887/WhatsApp_Image_2026-11-01_at_08.46.23_qbkz1w.jpg",
+        "https://res.cloudinary.com/deymoyy1z/image/upload/q_auto,f_auto,w_1200/v1793519885/WhatsApp_Image_2026-11-01_at_08.46.23_3_ueogev.jpg",
+        "https://res.cloudinary.com/deymoyy1z/image/upload/q_auto,f_auto,w_1200/v1793519885/WhatsApp_Image_2026-11-01_at_08.46.23_2_pb0kgr.jpg",
+        "https://res.cloudinary.com/deymoyy1z/image/upload/q_auto,f_auto,w_1200/v1793519885/WhatsApp_Image_2026-11-01_at_08.46.23_1_em2yvu.jpg",
+        "https://res.cloudinary.com/deymoyy1z/image/upload/q_auto,f_auto,w_1200/v1793519884/WhatsApp_Image_2026-11-01_at_08.46.22_u2dwxj.jpg",
+        "https://res.cloudinary.com/deymoyy1z/image/upload/q_auto,f_auto,w_1200/v1793519882/WhatsApp_Image_2026-11-01_at_08.46.22_2_vdp5wo.jpg",
+        "https://res.cloudinary.com/deymoyy1z/image/upload/q_auto,f_auto,w_1200/v1793519882/WhatsApp_Image_2026-11-01_at_08.46.22_1_zpbtks.jpg",
+        "https://res.cloudinary.com/deymoyy1z/image/upload/q_auto,f_auto,w_1200/v1793519882/WhatsApp_Image_2026-11-01_at_08.46.21_t04dxq.jpg",
+        "https://res.cloudinary.com/deymoyy1z/image/upload/q_auto,f_auto,w_1200/v1793519881/WhatsApp_Image_2026-11-01_at_08.46.21_3_u1jstq.jpg",
+        "https://res.cloudinary.com/deymoyy1z/image/upload/q_auto,f_auto,w_1200/v1793519880/WhatsApp_Image_2026-11-01_at_08.46.21_2_rlludq.jpg",
+        "https://res.cloudinary.com/deymoyy1z/image/upload/q_auto,f_auto,w_1200/v1793519879/WhatsApp_Image_2026-11-01_at_08.46.21_1_btdtgk.jpg",
+        "https://res.cloudinary.com/deymoyy1z/image/upload/q_auto,f_auto,w_1200/v1793519879/WhatsApp_Image_2026-11-01_at_08.46.20_oykeya.jpg",
+        "https://res.cloudinary.com/deymoyy1z/image/upload/q_auto,f_auto,w_1200/v1793519879/WhatsApp_Image_2026-11-01_at_08.46.20_3_hbea7m.jpg",
+        "https://res.cloudinary.com/deymoyy1z/image/upload/q_auto,f_auto,w_1200/v1793519878/WhatsApp_Image_2026-11-01_at_08.46.20_2_qbxntt.jpg",
+        "https://res.cloudinary.com/deymoyy1z/image/upload/q_auto,f_auto,w_1200/v1793519877/WhatsApp_Image_2026-11-01_at_08.46.20_1_tgxjpt.jpg",
+        "https://res.cloudinary.com/deymoyy1z/image/upload/q_auto,f_auto,w_1200/v1793519876/WhatsApp_Image_2026-11-01_at_08.46.19_e9u0if.jpg",
+        "https://res.cloudinary.com/deymoyy1z/image/upload/q_auto,f_auto,w_1200/v1793519876/WhatsApp_Image_2026-11-01_at_08.46.19_1_qlypyn.jpg",
+        "https://res.cloudinary.com/deymoyy1z/image/upload/q_auto,f_auto,w_1200/v1793519876/WhatsApp_Image_2026-11-01_at_08.46.18_htcgdd.jpg",
+        "https://res.cloudinary.com/deymoyy1z/image/upload/q_auto,f_auto,w_1200/v1793519874/WhatsApp_Image_2026-11-01_at_08.46.14_n2wzyv.jpg",
+        "https://res.cloudinary.com/deymoyy1z/image/upload/q_auto,f_auto,w_1200/v1793519873/WhatsApp_Image_2026-11-01_at_08.46.18_2_eex8j5.jpg",
+        "https://res.cloudinary.com/deymoyy1z/image/upload/q_auto,f_auto,w_1200/v1793519873/WhatsApp_Image_2026-11-01_at_08.46.18_1_tefcme.jpg",
+        "https://res.cloudinary.com/deymoyy1z/image/upload/q_auto,f_auto,w_1200/v1793519873/WhatsApp_Image_2026-11-01_at_08.46.13_raj6te.jpg",
+        "https://res.cloudinary.com/deymoyy1z/image/upload/q_auto,f_auto,w_1200/v1793519873/WhatsApp_Image_2026-11-01_at_08.46.12_egsq0o.jpg",
+        "https://res.cloudinary.com/deymoyy1z/image/upload/q_auto,f_auto,w_1200/v1793519873/WhatsApp_Image_2026-11-01_at_08.46.11_2_qqrfiq.jpg",
+        "https://res.cloudinary.com/deymoyy1z/image/upload/q_auto,f_auto,w_1200/v1793519873/WhatsApp_Image_2026-11-01_at_08.46.11_pw718j.jpg",
+        "https://res.cloudinary.com/deymoyy1z/image/upload/q_auto,f_auto,w_1200/v1793519873/WhatsApp_Image_2026-11-01_at_08.46.11_1_isptmg.jpg"
+      ]
+    },
+    {
       "nombre": "Septiembre 2026",
       "slug": "Septiembre-2026",
       "fotos": [
