@@ -1,5 +1,15 @@
 [
   {
+    "imagen": "pml-26-27.jpeg",
+    "titulo": "🎾 ¡Nueva Liga de Mediodía en La Pecera!",
+    "descripcion": "Una liga pensada para jugar a mediodía, entre 13:30 y 17h. Categoría única.\n\n📅 Empieza: 14 de Diciembre\n🕐 Partidos: De lunes a viernes, de 13:30 a 17h\n💶 Inscripción: 25€ persona (reservas incluidas)\n👥 Plazas limitadas\n\n🏆 Tus partidos suman puntos para el ranking mensual del club.\n\n📲 Inscríbete y sigue la clasificación y los partidos en la app:",
+    "boton": {
+      "texto": "Más información",
+      "tipo": "url",
+      "valor": "https://app.lapecerapadelclub.com/liga-weekend/2"
+    }
+  },
+  {
     "imagen": "semana-escuela.jpeg",
     "titulo": "¡Novedades en la Escuela!",
     "descripcion": "Cada semana nuevas clases y grupos disponibles para todos los niveles. ¡Apúntate y mejora tu juego con nuestros profes!",
